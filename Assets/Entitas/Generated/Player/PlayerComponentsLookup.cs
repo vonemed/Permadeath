@@ -10,16 +10,19 @@ public static class PlayerComponentsLookup {
 
     public const int Transform = 0;
     public const int Base = 1;
+    public const int Move = 2;
 
-    public const int TotalComponents = 2;
+    public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
         "Transform",
-        "Base"
+        "Base",
+        "Move"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Game.TransformComponent),
-        typeof(Player.BaseComponent)
+        typeof(Player.BaseComponent),
+        typeof(Player.MoveComponent)
     };
 }
