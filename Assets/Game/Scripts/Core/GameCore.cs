@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game
@@ -8,7 +9,18 @@ namespace Game
 
         private void Awake()
         {
-            
+            _gameSystems = new GameSystems(Contexts.sharedInstance);
+        }
+
+        private void Start()
+        {
+            _gameSystems.Initialize();
+        }
+
+        private void Update()
+        {
+            _gameSystems.Execute();
+            _gameSystems.Cleanup();
         }
     }
 }
