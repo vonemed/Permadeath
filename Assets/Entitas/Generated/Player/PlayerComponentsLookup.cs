@@ -8,19 +8,34 @@
 //------------------------------------------------------------------------------
 public static class PlayerComponentsLookup {
 
-    public const int Transform = 0;
-    public const int Base = 1;
-    public const int Move = 2;
+    public const int AttackRate = 0;
+    public const int Damage = 1;
+    public const int Death = 2;
+    public const int Health = 3;
+    public const int MovementSpeed = 4;
+    public const int Transform = 5;
+    public const int Base = 6;
+    public const int Move = 7;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
+        "AttackRate",
+        "Damage",
+        "Death",
+        "Health",
+        "MovementSpeed",
         "Transform",
         "Base",
         "Move"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Game.AttackRateComponent),
+        typeof(Game.DamageComponent),
+        typeof(Game.DeathComponent),
+        typeof(Game.HealthComponent),
+        typeof(Game.MovementSpeedComponent),
         typeof(Game.TransformComponent),
         typeof(Player.BaseComponent),
         typeof(Player.MoveComponent)

@@ -7,6 +7,8 @@ namespace Player
         public PlayerSystems(Contexts contexts)
         {
             Add(new PlayerMovementSystem(contexts));
+
+            Add(new PlayerDeathSystem(contexts.player));
         }
     }
 }

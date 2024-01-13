@@ -5,6 +5,16 @@ namespace Game
 {
     public class GameCore : MonoBehaviour
     {
+        public enum GameState
+        {
+            Play,
+            Defeat,
+            Victory,
+            Pause,
+            Restart
+        }
+        
+        
         private GameSystems _gameSystems;
 
         private void Awake()

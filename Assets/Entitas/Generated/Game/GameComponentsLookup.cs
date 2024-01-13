@@ -8,15 +8,27 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Transform = 0;
+    public const int CurrentState = 0;
+    public const int Defeat = 1;
+    public const int Restart = 2;
+    public const int StateHandler = 3;
+    public const int Transform = 4;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 5;
 
     public static readonly string[] componentNames = {
+        "CurrentState",
+        "Defeat",
+        "Restart",
+        "StateHandler",
         "Transform"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Game.CurrentStateComponent),
+        typeof(Game.DefeatComponent),
+        typeof(Game.RestartComponent),
+        typeof(Game.StateHandlerComponent),
         typeof(Game.TransformComponent)
     };
 }

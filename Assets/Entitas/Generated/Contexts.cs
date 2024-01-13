@@ -21,14 +21,20 @@ public partial class Contexts : Entitas.IContexts {
 
     static Contexts _sharedInstance;
 
+    public EnemyContext enemy { get; set; }
     public GameContext game { get; set; }
+    public ObjectPoolerContext objectPooler { get; set; }
     public PlayerContext player { get; set; }
+    public UIContext uI { get; set; }
 
-    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { game, player }; } }
+    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { enemy, game, objectPooler, player, uI }; } }
 
     public Contexts() {
+        enemy = new EnemyContext();
         game = new GameContext();
+        objectPooler = new ObjectPoolerContext();
         player = new PlayerContext();
+        uI = new UIContext();
 
         var postConstructors = System.Linq.Enumerable.Where(
             GetType().GetMethods(),
@@ -63,8 +69,11 @@ public partial class Contexts {
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeContextObservers() {
         try {
+            CreateContextObserver(enemy);
             CreateContextObserver(game);
+            CreateContextObserver(objectPooler);
             CreateContextObserver(player);
+            CreateContextObserver(uI);
         } catch(System.Exception e) {
             UnityEngine.Debug.LogError(e);
         }
