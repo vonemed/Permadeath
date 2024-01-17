@@ -61,6 +61,13 @@ sysinfo.txt
 *.unitypackage
 *.app
 
+.userproperties
+.idea
+*.userproperties
+Assembly-CSharp-Editor.csproj.DotSettings
+Assembly-CSharp.csproj.DotSettings
+ProjectSettings/ProjectVersion.txt
+
 # Crashlytics generated file
 crashlytics-build.properties
 
@@ -73,3 +80,6 @@ crashlytics-build.properties
 .idea/.idea.Permadeath/.idea/vcs.xml
 .idea/.idea.Permadeath/.idea/indexLayout.xml
 .idea/.idea.Permadeath/.idea/dbnavigator.xml
+ProjectSettings/ProjectVersion.txt
+ProjectSettings/ProjectVersion.txt
+ProjectSettings/ProjectVersion.txt

@@ -1,3 +1,4 @@
+using ConfigScripts;
 using Entitas;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ namespace Player.Systems
                 if (playerEntity.move.newPosition.sqrMagnitude < 0.01)
                     return;
 
-                var scaledMoveSpeed = 20 * Time.deltaTime;
+                var scaledMoveSpeed = ConfigsManager.Instance.playerConfig.moveSpeed * Time.deltaTime;
                 // For simplicity's sake, we just keep movement in a single plane here. Rotate
                 // direction according to world Y rotation of player.
                 var move = new Vector3(playerEntity.move.newPosition.x, playerEntity.move.newPosition.y, playerEntity.move.newPosition.z);
