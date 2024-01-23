@@ -140,7 +140,12 @@ namespace GameApp
             return gen.Aggregate($"{prefix}_", (current, g) => $"{current}{g}");
         }
 
-
+        public static bool IsInRange(in UnityEngine.Vector3 source, in UnityEngine.Vector3 target, in float range)
+        {
+            var sqrDistance = (source - target).sqrMagnitude;
+            return sqrDistance <= range * range;
+        }
+        
         public static bool IsInRange(in UnityEngine.Vector2 source, in UnityEngine.Vector2 target, in float range)
         {
             return (source - target).sqrMagnitude <= range * range;

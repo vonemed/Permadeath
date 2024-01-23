@@ -12,7 +12,7 @@ namespace Enemies
 
         protected override ICollector<EnemyEntity> GetTrigger(IContext<EnemyEntity> context)
         {
-            return context.CreateCollector(EnemyMatcher.EnemyAttack);
+            return context.CreateCollector(EnemyMatcher.Attack);
         }
 
         protected override bool Filter(EnemyEntity entity)
@@ -25,7 +25,7 @@ namespace Enemies
             foreach (var enemyEntity in entities)
             {
                 //Manual component removal
-                enemyEntity.requestEnemyAttack = false;
+                enemyEntity.requestAttack = false;
                 
                 var player = Contexts.sharedInstance.player.baseEntity;
                 var currentHealth = player.health.value;

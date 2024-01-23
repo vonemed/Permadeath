@@ -11,7 +11,7 @@ namespace Enemies
 
         public EnemyMovementSystem(EnemyContext context)
         {
-            _enemies = context.GetGroup(EnemyMatcher.AllOf(EnemyMatcher.Enemy, EnemyMatcher.EnemyTarget, EnemyMatcher.Transform));
+            _enemies = context.GetGroup(EnemyMatcher.AllOf(EnemyMatcher.Enemy, EnemyMatcher.Target, EnemyMatcher.Transform).NoneOf(EnemyMatcher.Death));
         }
 
         public void Execute()
@@ -22,15 +22,15 @@ namespace Enemies
             foreach (var enemy in _enemies)
             {
                 var source = new Vector2(enemy.transform.value.position.x, enemy.transform.value.position.z);
-                var target = new Vector2(enemy.enemyTarget.value.position.x, enemy.enemyTarget.value.position.z);
+                var target = new Vector2(enemy.target.value.position.x, enemy.target.value.position.z);
                 if (GameTools.IsInRange(source,
                         target, 1f))
                 {
-                    enemy.requestEnemyAttack = true;
+                    enemy.requestAttack = true;
                     return;
                 }
 
-                enemy.navMeshAgent.value.SetDestination(enemy.enemyTarget.value.position);
+                enemy.navMeshAgent.value.SetDestination(enemy.target.value.position);
             }
             // foreach (var enemy in _enemies)
             // {

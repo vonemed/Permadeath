@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d32a69633d959643a94cf8e1b4f4e08, type: 3}
-  m_Name: PlayerConfig
+  m_Script: {fileID: 11500000, guid: d6fa2d92fc1b3f34da284357edf89c3b, type: 3}
+  m_Name: New Signal
   m_EditorClassIdentifier: 
-  moveSpeed: 20
-  health: 100
-  attackDamage: 2
-  attackRange: 15
-  attackRate: 1

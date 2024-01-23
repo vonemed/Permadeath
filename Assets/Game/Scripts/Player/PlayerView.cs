@@ -1,5 +1,7 @@
+using System;
 using ConfigScripts;
 using Entitas.Unity;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,7 +13,7 @@ namespace Player
 
         private PlayerConfig _playerConfig;
         
-        private void Awake()
+        private void Start()
         {
             _playerConfig = ConfigsManager.Instance.playerConfig;
             
@@ -24,6 +26,8 @@ namespace Player
             //todo: remove magical number, add to config
             linkedEntity.AddHealth(_playerConfig.health);
             linkedEntity.AddDamage(_playerConfig.attackDamage);
+            linkedEntity.AddAttackRange(_playerConfig.attackRange);
+            linkedEntity.AddAttackRate(_playerConfig.attackRate);
         }
         
         public void OnMove(InputAction.CallbackContext context)

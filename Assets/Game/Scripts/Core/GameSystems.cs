@@ -1,6 +1,7 @@
 using Enemies;
 using Entitas;
 using Player;
+using Projectiles;
 
 namespace Game
 {
@@ -18,6 +19,8 @@ namespace Game
 
             Add(new PlayerSystems(contexts));
             Add(new EnemySystems(contexts));
+
+            Add(new ProjectileSystems(contexts));
 
             //Cleanup
             Add(new GameCleanupSystems(contexts));

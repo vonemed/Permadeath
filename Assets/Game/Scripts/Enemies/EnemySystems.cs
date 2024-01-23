@@ -10,6 +10,8 @@ namespace Enemies
             //Attack
             Add(new EnemyAttackRateSystem(contexts.enemy));
             Add(new EnemyAttackSystem(contexts.enemy));
+
+            Add(new EnemyDeathSystem(contexts.enemy));
         }
     }
 }

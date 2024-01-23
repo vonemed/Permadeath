@@ -8,7 +8,7 @@ namespace Enemies
     {
         public EnemyEntity linkedEntity;
 
-        private void Start()
+        private void Awake()
         {
             linkedEntity = Contexts.sharedInstance.enemy.CreateEntity();
             gameObject.Link(linkedEntity);

@@ -9,26 +9,41 @@
 public static class GameComponentsLookup {
 
     public const int CurrentState = 0;
-    public const int Defeat = 1;
-    public const int Restart = 2;
-    public const int StateHandler = 3;
-    public const int Transform = 4;
+    public const int Damage = 1;
+    public const int Defeat = 2;
+    public const int MoveDirection = 3;
+    public const int MovementSpeed = 4;
+    public const int Restart = 5;
+    public const int StateHandler = 6;
+    public const int Target = 7;
+    public const int Transform = 8;
+    public const int Projectile = 9;
 
-    public const int TotalComponents = 5;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "CurrentState",
+        "Damage",
         "Defeat",
+        "MoveDirection",
+        "MovementSpeed",
         "Restart",
         "StateHandler",
-        "Transform"
+        "Target",
+        "Transform",
+        "Projectile"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Game.CurrentStateComponent),
+        typeof(Game.DamageComponent),
         typeof(Game.DefeatComponent),
+        typeof(Game.MoveDirectionComponent),
+        typeof(Game.MovementSpeedComponent),
         typeof(Game.RestartComponent),
         typeof(Game.StateHandlerComponent),
-        typeof(Game.TransformComponent)
+        typeof(Game.TargetComponent),
+        typeof(Game.TransformComponent),
+        typeof(Projectiles.ProjectileComponent)
     };
 }

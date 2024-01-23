@@ -11,10 +11,16 @@ namespace Game
         public Transform value;
     }
     
-    [Player, Enemy]
+    [Player, Enemy, Game]
     public sealed class MovementSpeedComponent : IComponent
     {
         public float value;
+    }
+
+    [Game]
+    public sealed class MoveDirectionComponent : IComponent
+    {
+        public Vector3 value;
     }
     
     #endregion
@@ -26,7 +32,14 @@ namespace Game
     }
 
     #region Combat
-    [Player, Enemy]
+    
+    [Player, Enemy, Game]
+    public sealed class TargetComponent : IComponent
+    {
+        public Transform value;
+    }
+    
+    [Player, Enemy, Game]
     public sealed class DamageComponent : IComponent
     {
         public int value;
@@ -37,6 +50,15 @@ namespace Game
     {
         public float value;
     }
+    
+    [Player, Enemy]
+    public sealed class AttackRangeComponent : IComponent
+    {
+        public float value;
+    }
+    
+    [Enemy, Player, FlagPrefix("request")]
+    public sealed class AttackComponent : IComponent { }
     
     #endregion
     

@@ -1,18 +1,18 @@
+using System;
 using System.Collections.Generic;
 using Entitas;
-using UnityEngine;
 
 namespace Enemies
 {
-    public class SetPlayerTargetSystem : ReactiveSystem<EnemyEntity>
+    public class EnemyDeathSystem : ReactiveSystem<EnemyEntity>
     {
-        public SetPlayerTargetSystem(IContext<EnemyEntity> context) : base(context)
+        public EnemyDeathSystem(IContext<EnemyEntity> context) : base(context)
         {
         }
 
         protected override ICollector<EnemyEntity> GetTrigger(IContext<EnemyEntity> context)
         {
-            return context.CreateCollector(EnemyMatcher.PlayerTarget);
+            return context.CreateCollector(EnemyMatcher.Death);
         }
 
         protected override bool Filter(EnemyEntity entity)
@@ -22,11 +22,10 @@ namespace Enemies
 
         protected override void Execute(List<EnemyEntity> entities)
         {
-            Debug.Log("requesting player target");
             foreach (var enemyEntity in entities)
             {
-                enemyEntity.ReplaceTarget(Contexts.sharedInstance.player.baseEntity.transform.value);
-                enemyEntity.requestPlayerTarget = false;
+                enemyEntity.RemoveNavMeshAgent();
+                enemyEntity.transform.value.gameObject.SetActive(false); //todo: redo
             }
         }
     }

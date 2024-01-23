@@ -8,45 +8,48 @@
 //------------------------------------------------------------------------------
 public static class EnemyComponentsLookup {
 
-    public const int EnemyAttack = 0;
-    public const int Enemy = 1;
-    public const int EnemyTarget = 2;
-    public const int NavMeshAgent = 3;
-    public const int PlayerTarget = 4;
+    public const int Enemy = 0;
+    public const int NavMeshAgent = 1;
+    public const int PlayerTarget = 2;
+    public const int Attack = 3;
+    public const int AttackRange = 4;
     public const int AttackRate = 5;
     public const int Damage = 6;
     public const int Death = 7;
     public const int Health = 8;
     public const int MovementSpeed = 9;
-    public const int Transform = 10;
+    public const int Target = 10;
+    public const int Transform = 11;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 12;
 
     public static readonly string[] componentNames = {
-        "EnemyAttack",
         "Enemy",
-        "EnemyTarget",
         "NavMeshAgent",
         "PlayerTarget",
+        "Attack",
+        "AttackRange",
         "AttackRate",
         "Damage",
         "Death",
         "Health",
         "MovementSpeed",
+        "Target",
         "Transform"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Enemies.EnemyAttackComponent),
         typeof(Enemies.EnemyComponent),
-        typeof(Enemies.EnemyTargetComponent),
         typeof(Enemies.NavMeshAgentComponent),
         typeof(Enemies.PlayerTargetComponent),
+        typeof(Game.AttackComponent),
+        typeof(Game.AttackRangeComponent),
         typeof(Game.AttackRateComponent),
         typeof(Game.DamageComponent),
         typeof(Game.DeathComponent),
         typeof(Game.HealthComponent),
         typeof(Game.MovementSpeedComponent),
+        typeof(Game.TargetComponent),
         typeof(Game.TransformComponent)
     };
 }
