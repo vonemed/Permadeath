@@ -1,3 +1,4 @@
+using ConfigScripts;
 using Entitas.Unity;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,9 +20,9 @@ namespace Enemies
             linkedEntity.requestPlayerTarget = true;
             
             //todo: remove magical number, add to config
-            linkedEntity.AddHealth(5);
-            linkedEntity.AddDamage(1);
-            linkedEntity.AddAttackRate(0.5f);
+            linkedEntity.AddHealth(ConfigsManager.Instance.enemyConfig.health);
+            linkedEntity.AddDamage(ConfigsManager.Instance.enemyConfig.attackDamage);
+            linkedEntity.AddAttackRate(ConfigsManager.Instance.enemyConfig.attackRate);
         }
     }
 }

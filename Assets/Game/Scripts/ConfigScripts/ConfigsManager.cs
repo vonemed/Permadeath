@@ -7,6 +7,8 @@ namespace ConfigScripts
         public static ConfigsManager Instance;
 
         public PlayerConfig playerConfig;
+        public EnemyConfig enemyConfig;
+        public ParticlesConfig particlesConfig;
 
         private void Awake()
         {

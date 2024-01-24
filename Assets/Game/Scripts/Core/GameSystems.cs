@@ -22,13 +22,14 @@ namespace Game
 
             Add(new ProjectileSystems(contexts));
 
-            //Cleanup
-            Add(new GameCleanupSystems(contexts));
-            Add(new ObjectPoolerCleanupSystems(contexts));
-            
             //Event
             Add(new UIEventSystems(contexts));
             Add(new ObjectPoolerEventSystems(contexts));
+            Add(new GameEventSystems(contexts));
+            
+            //Cleanup
+            Add(new GameCleanupSystems(contexts));
+            Add(new ObjectPoolerCleanupSystems(contexts));
         }
     }
 }

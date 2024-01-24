@@ -17,9 +17,11 @@ public static class GameComponentsLookup {
     public const int StateHandler = 6;
     public const int Target = 7;
     public const int Transform = 8;
-    public const int Projectile = 9;
+    public const int OffListener = 9;
+    public const int Off = 10;
+    public const int Projectile = 11;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 12;
 
     public static readonly string[] componentNames = {
         "CurrentState",
@@ -31,6 +33,8 @@ public static class GameComponentsLookup {
         "StateHandler",
         "Target",
         "Transform",
+        "OffListener",
+        "Off",
         "Projectile"
     };
 
@@ -44,6 +48,8 @@ public static class GameComponentsLookup {
         typeof(Game.StateHandlerComponent),
         typeof(Game.TargetComponent),
         typeof(Game.TransformComponent),
+        typeof(OffListenerComponent),
+        typeof(Projectiles.OffComponent),
         typeof(Projectiles.ProjectileComponent)
     };
 }

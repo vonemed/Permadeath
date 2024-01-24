@@ -1,4 +1,5 @@
 using System.Linq;
+using ConfigScripts;
 using Entitas;
 using GameApp;
 using UnityEngine;
@@ -36,9 +37,12 @@ namespace Projectiles
 
                 if (GameTools.IsInRange(projectile.transform.value.position, projectile.target.value.position, 1f))
                 {
-                    projectile.transform.value.gameObject.SetActive(false); //trash todo: redo
+                    projectile.isOff = true;
                     var enemy = _enemies.GetEntities().ToList().Find(x => x.transform.value == projectile.target.value);
                     enemy.ReplaceHealth(enemy.health.value -= projectile.damage.value);
+
+                    GameObject.Instantiate(ConfigsManager.Instance.particlesConfig.defaultImpact, projectile.target.value.position + Vector3.up, Quaternion.identity);
+                    
 
                     if (enemy.health.value <= 0) enemy.isDeath = true;
                 }

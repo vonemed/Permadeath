@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ConfigScripts;
 using Entitas;
 
 namespace Enemies
@@ -35,7 +36,7 @@ namespace Enemies
                     || player.isDeath) continue;
 
                 player.ReplaceHealth(currentHealth - enemyEntity.damage.value);
-                enemyEntity.ReplaceAttackRate(0.5f); //todo: magical number, replace with config
+                enemyEntity.ReplaceAttackRate(ConfigsManager.Instance.enemyConfig.attackRate);
 
                 if (player.health.value <= 0) player.isDeath = true;
             }
