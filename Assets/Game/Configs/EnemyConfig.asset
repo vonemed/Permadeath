@@ -17,3 +17,7 @@ MonoBehaviour:
   attackDamage: 1
   attackRange: 1
   attackRate: 0.5
+  enemyPrefabs:
+  - enemyType: 0
+    enemyPrefab: {fileID: 5450140925651996349, guid: 001c06cf634996048b87acd6580adef0, type: 3}
+    xpReward: 5

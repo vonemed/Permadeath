@@ -7,6 +7,8 @@ namespace Enemies
 {
     public class EnemyView : MonoBehaviour
     {
+        public EnemyEnums.EnemyType enemyType;
+        
         public EnemyEntity linkedEntity;
 
         private void Awake()
@@ -19,10 +21,10 @@ namespace Enemies
             linkedEntity.AddNavMeshAgent(GetComponent<NavMeshAgent>());
             linkedEntity.requestPlayerTarget = true;
             
-            //todo: remove magical number, add to config
             linkedEntity.AddHealth(ConfigsManager.Instance.enemyConfig.health);
             linkedEntity.AddDamage(ConfigsManager.Instance.enemyConfig.attackDamage);
             linkedEntity.AddAttackRate(ConfigsManager.Instance.enemyConfig.attackRate);
+            linkedEntity.AddXpAward(ConfigsManager.Instance.enemyConfig.GetEnemyPrefabData(enemyType).xpReward);
         }
     }
 }

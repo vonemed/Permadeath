@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Game
 {
     #region Movement
-    [Player, Game, Enemy]
+    [Player, Game, Enemy, ObjectPooler]
     public sealed class TransformComponent : IComponent
     {
         public Transform value;
@@ -25,11 +25,22 @@ namespace Game
     
     #endregion
 
-    [Player, Enemy]
+    #region Stats
+
+    [Player, Enemy, Event(EventTarget.Any)]
     public sealed class HealthComponent : IComponent
     {
         public int value;
     }
+
+    [Player, Enemy, Event(EventTarget.Any)]
+    public sealed class LevelComponent : IComponent
+    {
+        public int value;
+    }
+    
+    #endregion
+
 
     #region Combat
     

@@ -1,7 +1,6 @@
 using ConfigScripts;
 using Entitas;
 using GameApp;
-using UnityEngine;
 
 namespace Player.Systems
 {
@@ -22,13 +21,13 @@ namespace Player.Systems
             
             var player = Contexts.sharedInstance.player.baseEntity;
 
-            var source = new Vector2(player.transform.value.position.x, player.transform.value.position.z);
+            var source = player.transform.value.position;
             
             foreach (var enemy in _enemies)
             {
                 if(enemy.isDeath) continue;
                 
-                var target = new Vector2(enemy.transform.value.position.x, enemy.transform.value.position.x);
+                var target = enemy.transform.value.position;
 
                 if (GameTools.IsInRange(source, target, ConfigsManager.Instance.playerConfig.attackRange))
                 {

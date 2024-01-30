@@ -8,22 +8,34 @@
 //------------------------------------------------------------------------------
 public static class ObjectPoolerComponentsLookup {
 
-    public const int EnemyPool = 0;
-    public const int ObjectPool = 1;
-    public const int SpawnObjects = 2;
-    public const int SpawnObjectsListener = 3;
+    public const int Transform = 0;
+    public const int CurrentWave = 1;
+    public const int EnemyPool = 2;
+    public const int EnemyWaves = 3;
+    public const int NextWaveTimer = 4;
+    public const int ObjectPool = 5;
+    public const int SpawnObjects = 6;
+    public const int SpawnObjectsListener = 7;
 
-    public const int TotalComponents = 4;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
+        "Transform",
+        "CurrentWave",
         "EnemyPool",
+        "EnemyWaves",
+        "NextWaveTimer",
         "ObjectPool",
         "SpawnObjects",
         "SpawnObjectsListener"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Game.TransformComponent),
+        typeof(Pools.CurrentWaveComponent),
         typeof(Pools.EnemyPoolComponent),
+        typeof(Pools.EnemyWavesComponent),
+        typeof(Pools.NextWaveTimerComponent),
         typeof(Pools.ObjectPoolComponent),
         typeof(Pools.SpawnObjectsComponent),
         typeof(SpawnObjectsListenerComponent)

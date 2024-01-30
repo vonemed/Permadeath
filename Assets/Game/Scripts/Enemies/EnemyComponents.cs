@@ -16,4 +16,10 @@ namespace Enemies
     {
         public NavMeshAgent value;
     }
+    
+    [Enemy]
+    public sealed class XpAwardComponent : IComponent
+    {
+        public int value;
+    }
 }

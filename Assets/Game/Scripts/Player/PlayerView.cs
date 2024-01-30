@@ -23,11 +23,13 @@ namespace Player
             linkedEntity.isBase = true;
             linkedEntity.AddTransform(transform);
             
-            //todo: remove magical number, add to config
             linkedEntity.AddHealth(_playerConfig.health);
             linkedEntity.AddDamage(_playerConfig.attackDamage);
             linkedEntity.AddAttackRange(_playerConfig.attackRange);
             linkedEntity.AddAttackRate(_playerConfig.attackRate);
+            
+            linkedEntity.AddXp(0);
+            linkedEntity.AddLevel(1);
         }
         
         public void OnMove(InputAction.CallbackContext context)

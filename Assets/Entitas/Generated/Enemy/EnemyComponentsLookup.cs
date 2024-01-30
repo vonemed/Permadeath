@@ -11,28 +11,36 @@ public static class EnemyComponentsLookup {
     public const int Enemy = 0;
     public const int NavMeshAgent = 1;
     public const int PlayerTarget = 2;
-    public const int Attack = 3;
-    public const int AttackRange = 4;
-    public const int AttackRate = 5;
-    public const int Damage = 6;
-    public const int Death = 7;
-    public const int Health = 8;
-    public const int MovementSpeed = 9;
-    public const int Target = 10;
-    public const int Transform = 11;
+    public const int XpAward = 3;
+    public const int EnemyAnyHealthListener = 4;
+    public const int EnemyAnyLevelListener = 5;
+    public const int Attack = 6;
+    public const int AttackRange = 7;
+    public const int AttackRate = 8;
+    public const int Damage = 9;
+    public const int Death = 10;
+    public const int Health = 11;
+    public const int Level = 12;
+    public const int MovementSpeed = 13;
+    public const int Target = 14;
+    public const int Transform = 15;
 
-    public const int TotalComponents = 12;
+    public const int TotalComponents = 16;
 
     public static readonly string[] componentNames = {
         "Enemy",
         "NavMeshAgent",
         "PlayerTarget",
+        "XpAward",
+        "EnemyAnyHealthListener",
+        "EnemyAnyLevelListener",
         "Attack",
         "AttackRange",
         "AttackRate",
         "Damage",
         "Death",
         "Health",
+        "Level",
         "MovementSpeed",
         "Target",
         "Transform"
@@ -42,12 +50,16 @@ public static class EnemyComponentsLookup {
         typeof(Enemies.EnemyComponent),
         typeof(Enemies.NavMeshAgentComponent),
         typeof(Enemies.PlayerTargetComponent),
+        typeof(Enemies.XpAwardComponent),
+        typeof(EnemyAnyHealthListenerComponent),
+        typeof(EnemyAnyLevelListenerComponent),
         typeof(Game.AttackComponent),
         typeof(Game.AttackRangeComponent),
         typeof(Game.AttackRateComponent),
         typeof(Game.DamageComponent),
         typeof(Game.DeathComponent),
         typeof(Game.HealthComponent),
+        typeof(Game.LevelComponent),
         typeof(Game.MovementSpeedComponent),
         typeof(Game.TargetComponent),
         typeof(Game.TransformComponent)

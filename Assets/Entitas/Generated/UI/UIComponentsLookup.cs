@@ -13,15 +13,17 @@ public static class UIComponentsLookup {
     public const int DefeatPanel = 2;
     public const int Hide = 3;
     public const int Show = 4;
+    public const int StatsScreen = 5;
 
-    public const int TotalComponents = 5;
+    public const int TotalComponents = 6;
 
     public static readonly string[] componentNames = {
         "HideListener",
         "ShowListener",
         "DefeatPanel",
         "Hide",
-        "Show"
+        "Show",
+        "StatsScreen"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -29,6 +31,7 @@ public static class UIComponentsLookup {
         typeof(ShowListenerComponent),
         typeof(UI.DefeatPanelComponent),
         typeof(UI.HideComponent),
-        typeof(UI.ShowComponent)
+        typeof(UI.ShowComponent),
+        typeof(UI.StatsScreenComponent)
     };
 }

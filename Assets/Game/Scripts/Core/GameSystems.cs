@@ -1,6 +1,7 @@
 using Enemies;
 using Entitas;
 using Player;
+using Pools;
 using Projectiles;
 
 namespace Game
@@ -22,11 +23,14 @@ namespace Game
 
             Add(new ProjectileSystems(contexts));
 
+            Add(new EnemyPoolSystems(contexts.objectPooler));
+
             //Event
             Add(new UIEventSystems(contexts));
             Add(new ObjectPoolerEventSystems(contexts));
             Add(new GameEventSystems(contexts));
-            
+            Add(new PlayerEventSystems(contexts));
+
             //Cleanup
             Add(new GameCleanupSystems(contexts));
             Add(new ObjectPoolerCleanupSystems(contexts));

@@ -24,6 +24,19 @@ namespace Enemies
         {
             foreach (var enemyEntity in entities)
             {
+                //move to separate system?
+                var player = Contexts.sharedInstance.player.baseEntity;
+                var newXp = player.xp.value + enemyEntity.xpAward.value;
+                
+                //Level up
+                if (newXp > 100)
+                {
+                    newXp -= 100;
+                    player.ReplaceLevel(player.level.value++);
+                }
+                
+                player.ReplaceXp(newXp);
+                
                 enemyEntity.RemoveNavMeshAgent();
                 enemyEntity.transform.value.gameObject.SetActive(false); //todo: redo
             }
