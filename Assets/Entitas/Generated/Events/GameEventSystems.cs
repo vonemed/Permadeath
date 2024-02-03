@@ -9,6 +9,8 @@
 public sealed class GameEventSystems : Feature {
 
     public GameEventSystems(Contexts contexts) {
+        Add(new GameHideEventSystem(contexts)); // priority: 0
         Add(new OffEventSystem(contexts)); // priority: 0
+        Add(new GameShowEventSystem(contexts)); // priority: 0
     }
 }

@@ -11,28 +11,36 @@ public static class GameComponentsLookup {
     public const int CurrentState = 0;
     public const int Damage = 1;
     public const int Defeat = 2;
-    public const int MoveDirection = 3;
-    public const int MovementSpeed = 4;
-    public const int Restart = 5;
-    public const int StateHandler = 6;
-    public const int Target = 7;
-    public const int Transform = 8;
-    public const int OffListener = 9;
-    public const int Off = 10;
-    public const int Projectile = 11;
+    public const int Hide = 3;
+    public const int MoveDirection = 4;
+    public const int MovementSpeed = 5;
+    public const int Restart = 6;
+    public const int Show = 7;
+    public const int StateHandler = 8;
+    public const int Target = 9;
+    public const int Transform = 10;
+    public const int GameHideListener = 11;
+    public const int GameShowListener = 12;
+    public const int OffListener = 13;
+    public const int Off = 14;
+    public const int Projectile = 15;
 
-    public const int TotalComponents = 12;
+    public const int TotalComponents = 16;
 
     public static readonly string[] componentNames = {
         "CurrentState",
         "Damage",
         "Defeat",
+        "Hide",
         "MoveDirection",
         "MovementSpeed",
         "Restart",
+        "Show",
         "StateHandler",
         "Target",
         "Transform",
+        "GameHideListener",
+        "GameShowListener",
         "OffListener",
         "Off",
         "Projectile"
@@ -42,12 +50,16 @@ public static class GameComponentsLookup {
         typeof(Game.CurrentStateComponent),
         typeof(Game.DamageComponent),
         typeof(Game.DefeatComponent),
+        typeof(Game.HideComponent),
         typeof(Game.MoveDirectionComponent),
         typeof(Game.MovementSpeedComponent),
         typeof(Game.RestartComponent),
+        typeof(Game.ShowComponent),
         typeof(Game.StateHandlerComponent),
         typeof(Game.TargetComponent),
         typeof(Game.TransformComponent),
+        typeof(GameHideListenerComponent),
+        typeof(GameShowListenerComponent),
         typeof(OffListenerComponent),
         typeof(Projectiles.OffComponent),
         typeof(Projectiles.ProjectileComponent)

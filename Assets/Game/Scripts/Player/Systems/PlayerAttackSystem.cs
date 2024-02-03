@@ -50,7 +50,7 @@ namespace Player.Systems
             projectileEntity.ReplaceMovementSpeed(5f);
 
             Debug.Log("Attack");
-            player.ReplaceAttackRate(ConfigsManager.Instance.playerConfig.attackRate); //todo: magical number, replace with config
+            player.ReplaceAttackRate(ConfigsManager.Instance.playerConfig.playerStats.attackRate); //todo: magical number, replace with config
         }
     }
 }

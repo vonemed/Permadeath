@@ -21,17 +21,21 @@ public partial class Contexts : Entitas.IContexts {
 
     static Contexts _sharedInstance;
 
+    public BoosterContext booster { get; set; }
     public EnemyContext enemy { get; set; }
     public GameContext game { get; set; }
+    public LootContext loot { get; set; }
     public ObjectPoolerContext objectPooler { get; set; }
     public PlayerContext player { get; set; }
     public UIContext uI { get; set; }
 
-    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { enemy, game, objectPooler, player, uI }; } }
+    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { booster, enemy, game, loot, objectPooler, player, uI }; } }
 
     public Contexts() {
+        booster = new BoosterContext();
         enemy = new EnemyContext();
         game = new GameContext();
+        loot = new LootContext();
         objectPooler = new ObjectPoolerContext();
         player = new PlayerContext();
         uI = new UIContext();
@@ -69,8 +73,10 @@ public partial class Contexts {
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeContextObservers() {
         try {
+            CreateContextObserver(booster);
             CreateContextObserver(enemy);
             CreateContextObserver(game);
+            CreateContextObserver(loot);
             CreateContextObserver(objectPooler);
             CreateContextObserver(player);
             CreateContextObserver(uI);

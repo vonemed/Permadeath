@@ -8,6 +8,7 @@ namespace ConfigScripts
 
         public PlayerConfig playerConfig;
         public EnemyConfig enemyConfig;
+        public BoosterConfig boosterConfig;
         public ParticlesConfig particlesConfig;
 
         private void Awake()

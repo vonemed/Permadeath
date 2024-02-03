@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Pools
 {
-    public class ProjectilePool : MonoBehaviour
+    public sealed class ProjectilePool : MonoBehaviour
     {
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private int spawnAmount;

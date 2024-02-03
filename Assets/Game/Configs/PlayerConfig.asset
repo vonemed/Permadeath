@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d32a69633d959643a94cf8e1b4f4e08, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
-  moveSpeed: 20
-  health: 100
-  attackDamage: 2
-  attackRange: 15
-  attackRate: 1
+  playerStats:
+    moveSpeed: 20
+    health: 100
+    attackDamage: 5
+    attackRange: 6
+    attackRate: 1
+    critChance: 0
+    healthRegen: 0
+    dodgeChance: 0
+    defence: 0
+    pickUpRange: 5

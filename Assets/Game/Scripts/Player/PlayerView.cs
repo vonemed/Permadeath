@@ -23,10 +23,10 @@ namespace Player
             linkedEntity.isBase = true;
             linkedEntity.AddTransform(transform);
             
-            linkedEntity.AddHealth(_playerConfig.health);
-            linkedEntity.AddDamage(_playerConfig.attackDamage);
-            linkedEntity.AddAttackRange(_playerConfig.attackRange);
-            linkedEntity.AddAttackRate(_playerConfig.attackRate);
+            linkedEntity.AddHealth(_playerConfig.playerStats.health);
+            linkedEntity.AddDamage(_playerConfig.playerStats.attackDamage);
+            linkedEntity.AddAttackRange(_playerConfig.playerStats.attackRange);
+            linkedEntity.AddAttackRate(_playerConfig.playerStats.attackRate);
             
             linkedEntity.AddXp(0);
             linkedEntity.AddLevel(1);

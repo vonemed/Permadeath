@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Entitas;
+using Pools;
+using UnityEngine;
 
 namespace Enemies
 {
@@ -24,18 +26,18 @@ namespace Enemies
         {
             foreach (var enemyEntity in entities)
             {
-                //move to separate system?
                 var player = Contexts.sharedInstance.player.baseEntity;
-                var newXp = player.xp.value + enemyEntity.xpAward.value;
+                // var newXp = player.xp.value + enemyEntity.xpAward.value;
+                // // player.ReplaceXp(newXp);
+
+                var lootAward = LootPool.Instance.RequestLoot();
+                lootAward.linkedEntity.ReplaceLootReward(new Loot.Loot.Reward() { xpReward =  enemyEntity.xpAward.value});
+                lootAward.transform.position = enemyEntity.transform.value.position;
+                lootAward.linkedEntity.isShow = true;
+                lootAward.linkedEntity.isPickedUp = false;
+                lootAward.linkedEntity.isSpawned = true;
                 
-                //Level up
-                if (newXp > 100)
-                {
-                    newXp -= 100;
-                    player.ReplaceLevel(player.level.value++);
-                }
-                
-                player.ReplaceXp(newXp);
+                Debug.Log("death");
                 
                 enemyEntity.RemoveNavMeshAgent();
                 enemyEntity.transform.value.gameObject.SetActive(false); //todo: redo

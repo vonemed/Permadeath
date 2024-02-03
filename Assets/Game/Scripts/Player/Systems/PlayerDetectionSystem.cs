@@ -7,6 +7,7 @@ namespace Player.Systems
     public class PlayerDetectionSystem : IExecuteSystem
     {
         private IGroup<EnemyEntity> _enemies;
+        private IGroup<LootEntity> _loot;
 
         private EnemyContext _enemyContext;
         public PlayerDetectionSystem(Contexts contexts)
@@ -18,6 +19,7 @@ namespace Player.Systems
         public void Execute()
         {
             _enemies = _enemyContext.GetGroup(EnemyMatcher.AllOf(EnemyMatcher.Enemy).NoneOf(EnemyMatcher.Death));
+            _loot = Contexts.sharedInstance.loot.GetGroup(LootMatcher.AllOf(LootMatcher.Loot, LootMatcher.Spawned).NoneOf(LootMatcher.PickedUp));
             
             var player = Contexts.sharedInstance.player.baseEntity;
 
@@ -29,10 +31,23 @@ namespace Player.Systems
                 
                 var target = enemy.transform.value.position;
 
-                if (GameTools.IsInRange(source, target, ConfigsManager.Instance.playerConfig.attackRange))
+                if (GameTools.IsInRange(source, target, ConfigsManager.Instance.playerConfig.playerStats.attackRange))
                 {
                     player.ReplaceTarget(enemy.transform.value);
                     player.requestAttack = true;
+                }
+            }
+
+            foreach (var lootEntity in _loot)
+            {
+                var target = lootEntity.transform.value.position;
+
+                if (GameTools.IsInRange(source, target, ConfigsManager.Instance.playerConfig.playerStats.pickUpRange))
+                {
+                    lootEntity.ReplaceTarget(player.transform.value);
+                    lootEntity.isFlyToTarget = true;
+                    // lootEntity.isPickedUp = true;
+                    // player.ReplaceXp(player.xp.value + lootEntity.lootReward.value.xpReward);
                 }
             }
         }

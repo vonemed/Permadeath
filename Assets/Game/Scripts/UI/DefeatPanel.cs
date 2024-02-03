@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class DefeatPanel : MonoBehaviour, IShowListener, IHideListener
+    public class DefeatPanel : MonoBehaviour, IUIShowListener, IUIHideListener
     {
         private UIEntity _linkedEntity;
         
@@ -14,8 +14,8 @@ namespace UI
 
             _linkedEntity.isDefeatPanel = true;
             
-            _linkedEntity.AddShowListener(this);
-            _linkedEntity.AddHideListener(this);
+            _linkedEntity.AddUIShowListener(this);
+            _linkedEntity.AddUIHideListener(this);
         }
 
         public void OnShow(UIEntity entity)

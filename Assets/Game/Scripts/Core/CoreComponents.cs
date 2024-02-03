@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Game
 {
     #region Movement
-    [Player, Game, Enemy, ObjectPooler]
+    [Player, Game, Enemy, ObjectPooler, Loot]
     public sealed class TransformComponent : IComponent
     {
         public Transform value;
@@ -44,7 +44,7 @@ namespace Game
 
     #region Combat
     
-    [Player, Enemy, Game]
+    [Player, Enemy, Game, Loot]
     public sealed class TargetComponent : IComponent
     {
         public Transform value;
@@ -85,6 +85,12 @@ namespace Game
     {
         public GameCore.GameState value;
     }
+    
+    [UI, Game, Loot, Event(EventTarget.Self), Cleanup(CleanupMode.RemoveComponent)]
+    public sealed class ShowComponent : IComponent { }
+    
+    [UI, Game, Loot, Event(EventTarget.Self), Cleanup(CleanupMode.RemoveComponent)]
+    public sealed class HideComponent : IComponent { }
     
     [Game, FlagPrefix("request"), Cleanup(CleanupMode.DestroyEntity)]
     public sealed class DefeatComponent : IComponent { }

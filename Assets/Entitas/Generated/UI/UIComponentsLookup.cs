@@ -8,30 +8,30 @@
 //------------------------------------------------------------------------------
 public static class UIComponentsLookup {
 
-    public const int HideListener = 0;
-    public const int ShowListener = 1;
+    public const int Hide = 0;
+    public const int Show = 1;
     public const int DefeatPanel = 2;
-    public const int Hide = 3;
-    public const int Show = 4;
-    public const int StatsScreen = 5;
+    public const int StatsScreen = 3;
+    public const int UIHideListener = 4;
+    public const int UIShowListener = 5;
 
     public const int TotalComponents = 6;
 
     public static readonly string[] componentNames = {
-        "HideListener",
-        "ShowListener",
-        "DefeatPanel",
         "Hide",
         "Show",
-        "StatsScreen"
+        "DefeatPanel",
+        "StatsScreen",
+        "UIHideListener",
+        "UIShowListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(HideListenerComponent),
-        typeof(ShowListenerComponent),
+        typeof(Game.HideComponent),
+        typeof(Game.ShowComponent),
         typeof(UI.DefeatPanelComponent),
-        typeof(UI.HideComponent),
-        typeof(UI.ShowComponent),
-        typeof(UI.StatsScreenComponent)
+        typeof(UI.StatsScreenComponent),
+        typeof(UIHideListenerComponent),
+        typeof(UIShowListenerComponent)
     };
 }
