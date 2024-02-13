@@ -30,13 +30,19 @@ namespace Game
     [Player, Enemy, Event(EventTarget.Any)]
     public sealed class HealthComponent : IComponent
     {
-        public int value;
+        public float value;
+    }
+    
+    [Player, Enemy]
+    public sealed class HealthRegenComponent : IComponent
+    {
+        public float value;
     }
 
     [Player, Enemy, Event(EventTarget.Any)]
     public sealed class LevelComponent : IComponent
     {
-        public int value;
+        public uint value;
     }
     
     #endregion
@@ -53,7 +59,7 @@ namespace Game
     [Player, Enemy, Game]
     public sealed class DamageComponent : IComponent
     {
-        public int value;
+        public float value;
     }
     
     [Player, Enemy]
@@ -75,7 +81,9 @@ namespace Game
     
     [Player, Enemy]
     public sealed class DeathComponent : IComponent { }
-    
+
+    #region State
+
     //Core
     [Game, Unique]
     public sealed class StateHandlerComponent : IComponent {}
@@ -86,15 +94,29 @@ namespace Game
         public GameCore.GameState value;
     }
     
+    [Player, Enemy]
+    public sealed class PausedComponent : IComponent { }
+
+    [Game, FlagPrefix("request"), Cleanup(CleanupMode.DestroyEntity)]
+    public sealed class DefeatComponent : IComponent { }
+    
+    [Game, FlagPrefix("request"), Cleanup(CleanupMode.DestroyEntity)]
+    public sealed class RestartComponent : IComponent { }
+    
+    [Game, FlagPrefix("request"), Cleanup(CleanupMode.DestroyEntity)]
+    public sealed class PauseComponent : IComponent { }
+    
+    [Game, FlagPrefix("request"), Cleanup(CleanupMode.DestroyEntity)]
+    public sealed class PlayComponent : IComponent { }
+    
+    #endregion
+
+    
     [UI, Game, Loot, Event(EventTarget.Self), Cleanup(CleanupMode.RemoveComponent)]
     public sealed class ShowComponent : IComponent { }
     
     [UI, Game, Loot, Event(EventTarget.Self), Cleanup(CleanupMode.RemoveComponent)]
     public sealed class HideComponent : IComponent { }
     
-    [Game, FlagPrefix("request"), Cleanup(CleanupMode.DestroyEntity)]
-    public sealed class DefeatComponent : IComponent { }
-    
-    [Game, FlagPrefix("request"), Cleanup(CleanupMode.DestroyEntity)]
-    public sealed class RestartComponent : IComponent { }
+
 }

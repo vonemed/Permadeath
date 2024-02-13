@@ -8,26 +8,33 @@
 //------------------------------------------------------------------------------
 public static class PlayerComponentsLookup {
 
-    public const int AnyXpListener = 0;
-    public const int Attack = 1;
-    public const int AttackRange = 2;
-    public const int AttackRate = 3;
-    public const int Damage = 4;
-    public const int Death = 5;
-    public const int Health = 6;
-    public const int Level = 7;
-    public const int MovementSpeed = 8;
-    public const int Target = 9;
-    public const int Transform = 10;
-    public const int Base = 11;
-    public const int Move = 12;
-    public const int Xp = 13;
-    public const int PlayerAnyHealthListener = 14;
-    public const int PlayerAnyLevelListener = 15;
+    public const int AnyPlayerBoosterInventoryListener = 0;
+    public const int AnyXpListener = 1;
+    public const int Attack = 2;
+    public const int AttackRange = 3;
+    public const int AttackRate = 4;
+    public const int Damage = 5;
+    public const int Death = 6;
+    public const int Health = 7;
+    public const int HealthRegen = 8;
+    public const int Level = 9;
+    public const int MovementSpeed = 10;
+    public const int Paused = 11;
+    public const int Target = 12;
+    public const int Transform = 13;
+    public const int Base = 14;
+    public const int Move = 15;
+    public const int PlayerAttackSpeedCooldown = 16;
+    public const int PlayerBoosterInventory = 17;
+    public const int PlayerStats = 18;
+    public const int Xp = 19;
+    public const int PlayerAnyHealthListener = 20;
+    public const int PlayerAnyLevelListener = 21;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
+        "AnyPlayerBoosterInventoryListener",
         "AnyXpListener",
         "Attack",
         "AttackRange",
@@ -35,18 +42,24 @@ public static class PlayerComponentsLookup {
         "Damage",
         "Death",
         "Health",
+        "HealthRegen",
         "Level",
         "MovementSpeed",
+        "Paused",
         "Target",
         "Transform",
         "Base",
         "Move",
+        "PlayerAttackSpeedCooldown",
+        "PlayerBoosterInventory",
+        "PlayerStats",
         "Xp",
         "PlayerAnyHealthListener",
         "PlayerAnyLevelListener"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AnyPlayerBoosterInventoryListenerComponent),
         typeof(AnyXpListenerComponent),
         typeof(Game.AttackComponent),
         typeof(Game.AttackRangeComponent),
@@ -54,12 +67,17 @@ public static class PlayerComponentsLookup {
         typeof(Game.DamageComponent),
         typeof(Game.DeathComponent),
         typeof(Game.HealthComponent),
+        typeof(Game.HealthRegenComponent),
         typeof(Game.LevelComponent),
         typeof(Game.MovementSpeedComponent),
+        typeof(Game.PausedComponent),
         typeof(Game.TargetComponent),
         typeof(Game.TransformComponent),
         typeof(Player.BaseComponent),
         typeof(Player.MoveComponent),
+        typeof(Player.PlayerAttackSpeedCooldownComponent),
+        typeof(Player.PlayerBoosterInventoryComponent),
+        typeof(Player.PlayerStatsComponent),
         typeof(Player.XpComponent),
         typeof(PlayerAnyHealthListenerComponent),
         typeof(PlayerAnyLevelListenerComponent)

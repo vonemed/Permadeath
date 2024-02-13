@@ -38,6 +38,18 @@ namespace Game
                         Contexts.sharedInstance.game.CreateEntity().requestRestart = true;
                         break;
                     }
+
+                    case (GameCore.GameState.Pause):
+                    {
+                        Contexts.sharedInstance.game.CreateEntity().requestPause = true;
+                        break;
+                    }
+
+                    case (GameCore.GameState.Play):
+                    {
+                        Contexts.sharedInstance.game.CreateEntity().requestPlay = true;
+                        break;
+                    }
                 }
             }
         }

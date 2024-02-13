@@ -8,15 +8,15 @@
 //------------------------------------------------------------------------------
 public static class BoosterComponentsLookup {
 
+    public const int BoosterSelected = 0;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 1;
 
     public static readonly string[] componentNames = {
-
+        "BoosterSelected"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(Boosters.BoosterSelectedComponent)
     };
 }

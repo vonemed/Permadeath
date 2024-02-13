@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IEnemyAnyLevelListener {
-    void OnAnyLevel(EnemyEntity entity, int value);
+    void OnAnyLevel(EnemyEntity entity, uint value);
 }

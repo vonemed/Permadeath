@@ -11,7 +11,7 @@ public partial interface IHealthEntity {
     Game.HealthComponent health { get; }
     bool hasHealth { get; }
 
-    void AddHealth(int newValue);
-    void ReplaceHealth(int newValue);
+    void AddHealth(float newValue);
+    void ReplaceHealth(float newValue);
     void RemoveHealth();
 }

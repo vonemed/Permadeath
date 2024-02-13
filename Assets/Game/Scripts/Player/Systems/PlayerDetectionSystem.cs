@@ -31,7 +31,7 @@ namespace Player.Systems
                 
                 var target = enemy.transform.value.position;
 
-                if (GameTools.IsInRange(source, target, ConfigsManager.Instance.playerConfig.playerStats.attackRange))
+                if (GameTools.IsInRange(source, target, player.playerStats.value.attackRange))
                 {
                     player.ReplaceTarget(enemy.transform.value);
                     player.requestAttack = true;
@@ -42,7 +42,7 @@ namespace Player.Systems
             {
                 var target = lootEntity.transform.value.position;
 
-                if (GameTools.IsInRange(source, target, ConfigsManager.Instance.playerConfig.playerStats.pickUpRange))
+                if (GameTools.IsInRange(source, target, player.playerStats.value.pickUpRange))
                 {
                     lootEntity.ReplaceTarget(player.transform.value);
                     lootEntity.isFlyToTarget = true;

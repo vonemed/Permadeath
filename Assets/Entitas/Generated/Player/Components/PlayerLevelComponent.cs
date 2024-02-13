@@ -11,14 +11,14 @@ public partial class PlayerEntity {
     public Game.LevelComponent level { get { return (Game.LevelComponent)GetComponent(PlayerComponentsLookup.Level); } }
     public bool hasLevel { get { return HasComponent(PlayerComponentsLookup.Level); } }
 
-    public void AddLevel(int newValue) {
+    public void AddLevel(uint newValue) {
         var index = PlayerComponentsLookup.Level;
         var component = (Game.LevelComponent)CreateComponent(index, typeof(Game.LevelComponent));
         component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceLevel(int newValue) {
+    public void ReplaceLevel(uint newValue) {
         var index = PlayerComponentsLookup.Level;
         var component = (Game.LevelComponent)CreateComponent(index, typeof(Game.LevelComponent));
         component.value = newValue;

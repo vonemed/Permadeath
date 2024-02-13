@@ -1,8 +1,9 @@
 using Player.Systems;
+using Entitas;
 
 namespace Player
 {
-    public class PlayerSystems : Feature
+    public sealed class PlayerSystems : Entitas.Systems
     {
         public PlayerSystems(Contexts contexts)
         {
@@ -14,6 +15,9 @@ namespace Player
             Add(new PlayerAttackSystem(contexts.player));
 
             Add(new PlayerDeathSystem(contexts.player));
+            Add(new PlayerXpSystem(contexts.player));
+            
+            Add(new PlayerEventSystems(contexts));
         }
     }
 }

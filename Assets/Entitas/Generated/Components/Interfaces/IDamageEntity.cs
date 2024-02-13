@@ -11,7 +11,7 @@ public partial interface IDamageEntity {
     Game.DamageComponent damage { get; }
     bool hasDamage { get; }
 
-    void AddDamage(int newValue);
-    void ReplaceDamage(int newValue);
+    void AddDamage(float newValue);
+    void ReplaceDamage(float newValue);
     void RemoveDamage();
 }

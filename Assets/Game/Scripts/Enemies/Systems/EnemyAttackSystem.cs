@@ -29,13 +29,12 @@ namespace Enemies
                 enemyEntity.requestAttack = false;
                 
                 var player = Contexts.sharedInstance.player.baseEntity;
-                var currentHealth = player.health.value;
-                
+                var currentHealth = (float)player.health.value;
                 //If its not time to attack or player is dead, then skip
                 if (enemyEntity.attackRate.value > 0
                     || player.isDeath) continue;
 
-                player.ReplaceHealth(currentHealth - enemyEntity.damage.value);
+                player.ReplaceHealth( currentHealth - enemyEntity.damage.value);
                 enemyEntity.ReplaceAttackRate(ConfigsManager.Instance.enemyConfig.attackRate);
 
                 if (player.health.value <= 0) player.isDeath = true;

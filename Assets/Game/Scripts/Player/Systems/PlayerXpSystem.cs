@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Entitas;
+using Game;
+using UnityEngine;
 
 namespace Player.Systems
 {
@@ -29,12 +31,18 @@ namespace Player.Systems
                 if (newXp > 100)
                 {
                     newXp -= 100;
-                    playerEntity.ReplaceLevel(playerEntity.level.value++);
+                    var currentLevel = playerEntity.level.value;
+                    playerEntity.ReplaceLevel(++currentLevel);
+                    playerEntity.ReplaceXp(newXp);
+
+                    Contexts.sharedInstance.uI.boosterChoosePanelEntity.isShow = true;
+                    Contexts.sharedInstance.game.stateHandlerEntity.ReplaceCurrentState(GameCore.GameState.Pause);
+                    Debug.Log("we pausin");
+                    return;
                 }
                 
                 playerEntity.ReplaceXp(newXp);
             }
-
         }
     }
 }

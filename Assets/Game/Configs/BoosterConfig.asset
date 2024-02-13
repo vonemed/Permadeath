@@ -12,4 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc997d9488744bdba243cd23a83b6be2, type: 3}
   m_Name: BoosterConfig
   m_EditorClassIdentifier: 
-  boosters: []
+  boosters:
+  - icon: {fileID: 21300000, guid: 4971e2dc27b75e548b0ba2e501e63a11, type: 3}
+    name: Quickened Pulse
+    description: 5% increase attack speed
+    boosterRarity: 0
+    boosterStats:
+      statType: 4
+      percentageBuff: 5
+  - icon: {fileID: 21300000, guid: 5b54bdb1be4874541bd7c2c63972dfc2, type: 3}
+    name: Warrior's Edge
+    description: '5% damage increase '
+    boosterRarity: 0
+    boosterStats:
+      statType: 2
+      percentageBuff: 5
+  - icon: {fileID: 21300000, guid: 3fd808bc9447c9d499c40bf3cedec493, type: 3}
+    name: Regenerative Core
+    description: '0.1% hp regen '
+    boosterRarity: 0
+    boosterStats:
+      statType: 6
+      percentageBuff: 0.1

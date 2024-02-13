@@ -7,5 +7,8 @@ namespace UI
     public sealed class DefeatPanelComponent : IComponent { }
     
     [UI, Unique]
+    public sealed class BoosterChoosePanelComponent : IComponent { }
+    
+    [UI, Unique]
     public sealed class StatsScreenComponent : IComponent { }
 }

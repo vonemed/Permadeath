@@ -11,7 +11,7 @@ public partial interface ILevelEntity {
     Game.LevelComponent level { get; }
     bool hasLevel { get; }
 
-    void AddLevel(int newValue);
-    void ReplaceLevel(int newValue);
+    void AddLevel(uint newValue);
+    void ReplaceLevel(uint newValue);
     void RemoveLevel();
 }

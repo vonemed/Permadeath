@@ -7,8 +7,8 @@ namespace Player.Systems
     {
         public void Execute()
         {
-            if (Contexts.sharedInstance.player.baseEntity.attackRate.value > 0)
-                Contexts.sharedInstance.player.baseEntity.attackRate.value -= Time.deltaTime;
+            if (Contexts.sharedInstance.player.baseEntity.playerAttackSpeedCooldown.value > 0)
+                Contexts.sharedInstance.player.baseEntity.playerAttackSpeedCooldown.value -= Time.deltaTime;
         }
     }
 }

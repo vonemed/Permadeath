@@ -8,5 +8,10 @@ namespace ConfigScripts
     public class BoosterConfig : ScriptableObject
     {
         public List<Booster> boosters = new List<Booster>();
+
+        public Booster GetBoosterByStats(BoosterStats stats)
+        {
+            return boosters.Find(x => x.boosterStats == stats);
+        }
     }
 }

@@ -10,8 +10,8 @@ namespace ConfigScripts
     {
         [Header("[Stats]")] 
         public float moveSpeed;
-        public int health;
-        public int attackDamage;
+        public uint health;
+        public uint attackDamage;
         public float attackRange;
         public float attackRate;
 

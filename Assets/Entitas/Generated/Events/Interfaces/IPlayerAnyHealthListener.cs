@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IPlayerAnyHealthListener {
-    void OnAnyHealth(PlayerEntity entity, int value);
+    void OnAnyHealth(PlayerEntity entity, float value);
 }

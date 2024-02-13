@@ -20,12 +20,14 @@ public static class EnemyComponentsLookup {
     public const int Damage = 9;
     public const int Death = 10;
     public const int Health = 11;
-    public const int Level = 12;
-    public const int MovementSpeed = 13;
-    public const int Target = 14;
-    public const int Transform = 15;
+    public const int HealthRegen = 12;
+    public const int Level = 13;
+    public const int MovementSpeed = 14;
+    public const int Paused = 15;
+    public const int Target = 16;
+    public const int Transform = 17;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
         "Enemy",
@@ -40,8 +42,10 @@ public static class EnemyComponentsLookup {
         "Damage",
         "Death",
         "Health",
+        "HealthRegen",
         "Level",
         "MovementSpeed",
+        "Paused",
         "Target",
         "Transform"
     };
@@ -59,8 +63,10 @@ public static class EnemyComponentsLookup {
         typeof(Game.DamageComponent),
         typeof(Game.DeathComponent),
         typeof(Game.HealthComponent),
+        typeof(Game.HealthRegenComponent),
         typeof(Game.LevelComponent),
         typeof(Game.MovementSpeedComponent),
+        typeof(Game.PausedComponent),
         typeof(Game.TargetComponent),
         typeof(Game.TransformComponent)
     };

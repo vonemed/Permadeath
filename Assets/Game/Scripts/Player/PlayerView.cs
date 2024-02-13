@@ -1,7 +1,7 @@
-using System;
+using System.Collections.Generic;
+using Boosters;
 using ConfigScripts;
 using Entitas.Unity;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,10 +23,14 @@ namespace Player
             linkedEntity.isBase = true;
             linkedEntity.AddTransform(transform);
             
+            // linkedEntity.AddDamage(_playerConfig.playerStats.attackDamage);
+            // linkedEntity.AddAttackRange(_playerConfig.playerStats.attackRange);
+            // linkedEntity.AddAttackRate(_playerConfig.playerStats.attackRate);
+            
+            linkedEntity.AddPlayerBoosterInventory(new List<Booster>());
+            linkedEntity.AddPlayerStats(_playerConfig.playerStats);
             linkedEntity.AddHealth(_playerConfig.playerStats.health);
-            linkedEntity.AddDamage(_playerConfig.playerStats.attackDamage);
-            linkedEntity.AddAttackRange(_playerConfig.playerStats.attackRange);
-            linkedEntity.AddAttackRate(_playerConfig.playerStats.attackRate);
+            linkedEntity.ReplacePlayerAttackSpeedCooldown(_playerConfig.playerStats.attackRate);
             
             linkedEntity.AddXp(0);
             linkedEntity.AddLevel(1);

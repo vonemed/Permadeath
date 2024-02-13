@@ -30,7 +30,7 @@ namespace Player.Systems
             player.requestAttack = false;
 
             //If its not time to attack or player is dead, then skip
-            if (player.attackRate.value > 0
+            if (player.playerAttackSpeedCooldown.value > 0
                 || player.isDeath) return;
             
             
@@ -44,13 +44,14 @@ namespace Player.Systems
             var newPos = projectileDirection * scaledMoveSpeed;
             projectileEntity.transform.value.position = player.transform.value.position;
             projectileEntity.transform.value.Rotate(projectileDirection * 5f * Time.deltaTime);
-            projectileEntity.ReplaceDamage(player.damage.value);
+            projectileEntity.ReplaceDamage(player.playerStats.value.attackDamage);
             projectileEntity.ReplaceTarget(player.target.value);
             projectileEntity.ReplaceMoveDirection(new Vector3(newPos.x, 0, newPos.z));
             projectileEntity.ReplaceMovementSpeed(5f);
 
             Debug.Log("Attack");
-            player.ReplaceAttackRate(ConfigsManager.Instance.playerConfig.playerStats.attackRate); //todo: magical number, replace with config
+            // player.ReplaceAttackRate(player.playerStats.value.attackRate);
+            player.ReplacePlayerAttackSpeedCooldown(player.playerStats.value.attackRate);
         }
     }
 }

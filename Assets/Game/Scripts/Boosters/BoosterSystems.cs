@@ -1,7 +1,12 @@
+using Boosters.Systems;
+
 namespace Boosters
 {
-    public class BoosterSystems
+    public sealed class BoosterSystems : Feature
     {
-        
+        public BoosterSystems(BoosterContext context)
+        {
+            Add(new BoosterIsChosenSystem(context));
+        }
     }
 }

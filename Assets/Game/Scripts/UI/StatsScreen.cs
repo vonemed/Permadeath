@@ -19,7 +19,7 @@ public class StatsScreen : MonoBehaviour, IPlayerAnyHealthListener, IAnyXpListen
         // _linkedEntity.isStatsScreen = true;
     }
     
-    public void OnAnyHealth(PlayerEntity entity, int value)
+    public void OnAnyHealth(PlayerEntity entity, float value)
     {
         _hpAmount.value = value;
     }
@@ -29,7 +29,7 @@ public class StatsScreen : MonoBehaviour, IPlayerAnyHealthListener, IAnyXpListen
         _expAmount.value = value;
     }
 
-    public void OnAnyLevel(PlayerEntity entity, int value)
+    public void OnAnyLevel(PlayerEntity entity, uint value)
     {
         _levelText.SetText($"Level: {value}");
     }

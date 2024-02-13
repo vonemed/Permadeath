@@ -1,6 +1,6 @@
 namespace Enemies
 {
-    public class EnemySystems : Feature
+    public sealed class EnemySystems : Entitas.Systems
     {
         public EnemySystems(Contexts contexts)
         {

@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IPlayerAnyLevelListener {
-    void OnAnyLevel(PlayerEntity entity, int value);
+    void OnAnyLevel(PlayerEntity entity, uint value);
 }

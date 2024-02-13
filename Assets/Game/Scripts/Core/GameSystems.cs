@@ -1,8 +1,5 @@
-using Enemies;
+using Boosters;
 using Entitas;
-using Loot;
-using Player;
-using Pools;
 using Projectiles;
 
 namespace Game
@@ -14,31 +11,21 @@ namespace Game
             //Init
             Add(new GameInitSystem());
             
-            //States
+            //States //todo: group them into a feature
             Add(new StateHandlerSystem(contexts.game));
             Add(new DefeatStateSystem(contexts.game));
             Add(new RestartStateSystem(contexts.game));
-
-            Add(new PlayerSystems(contexts));
-            Add(new EnemySystems(contexts));
+            Add(new PauseStateSystem(contexts.game));
+            Add(new PlayStateSystem(contexts.game));
 
             Add(new ProjectileSystems(contexts));
-
-            Add(new EnemyPoolSystems(contexts.objectPooler));
-
-            Add(new LootSystems(contexts.loot));
+            Add(new BoosterSystems(contexts.booster));
 
             //Event
-            Add(new UIEventSystems(contexts));
-            Add(new ObjectPoolerEventSystems(contexts));
             Add(new GameEventSystems(contexts));
-            Add(new PlayerEventSystems(contexts));
-            Add(new LootEventSystems(contexts));
 
             //Cleanup
             Add(new GameCleanupSystems(contexts));
-            Add(new ObjectPoolerCleanupSystems(contexts));
-            Add(new LootCleanupSystems(contexts));
         }
     }
 }

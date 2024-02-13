@@ -26,10 +26,6 @@ namespace Enemies
         {
             foreach (var enemyEntity in entities)
             {
-                var player = Contexts.sharedInstance.player.baseEntity;
-                // var newXp = player.xp.value + enemyEntity.xpAward.value;
-                // // player.ReplaceXp(newXp);
-
                 var lootAward = LootPool.Instance.RequestLoot();
                 lootAward.linkedEntity.ReplaceLootReward(new Loot.Loot.Reward() { xpReward =  enemyEntity.xpAward.value});
                 lootAward.transform.position = enemyEntity.transform.value.position;
