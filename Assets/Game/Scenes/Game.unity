@@ -4088,29 +4088,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3557273452650873140, guid: 53367b4988a6cef48b766c468e5a1897, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3557273452650873140, guid: 53367b4988a6cef48b766c468e5a1897, type: 3}
-      propertyPath: m_Constraints
-      value: 84
-      objectReference: {fileID: 0}
-    - target: {fileID: 3557273452650873140, guid: 53367b4988a6cef48b766c468e5a1897, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3557273452650873140, guid: 53367b4988a6cef48b766c468e5a1897, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4115355287617493041, guid: 53367b4988a6cef48b766c468e5a1897, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4115355287617493041, guid: 53367b4988a6cef48b766c468e5a1897, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

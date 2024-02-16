@@ -74,9 +74,13 @@ namespace Game
 
         private void FixedUpdate()
         {
-            _playerFixedUpdate.Execute();
-            
-            _playerFixedUpdate.Cleanup();
+            if (Contexts.sharedInstance.game.stateHandlerEntity.hasCurrentState
+                && Contexts.sharedInstance.game.stateHandlerEntity.currentState.value != GameState.Pause)
+            {
+                _playerFixedUpdate.Execute();
+
+                _playerFixedUpdate.Cleanup();
+            }
         }
     }
 }
