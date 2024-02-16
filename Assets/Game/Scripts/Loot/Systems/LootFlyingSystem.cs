@@ -25,9 +25,7 @@ namespace Loot
 
                 if (GameTools.IsInRange(lootEntity.transform.value.position, player.transform.value.position, 1f))
                 {
-                    Debug.Log("flying");
                     lootEntity.isPickedUp = true;
-                    
                 }
             }
         }

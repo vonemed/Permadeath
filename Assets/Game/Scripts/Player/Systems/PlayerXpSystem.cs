@@ -37,7 +37,6 @@ namespace Player.Systems
 
                     Contexts.sharedInstance.uI.boosterChoosePanelEntity.isShow = true;
                     Contexts.sharedInstance.game.stateHandlerEntity.ReplaceCurrentState(GameCore.GameState.Pause);
-                    Debug.Log("we pausin");
                     return;
                 }
                 

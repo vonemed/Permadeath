@@ -28,7 +28,6 @@ namespace Loot
                 lootEntity.isFlyToTarget = false;
                 lootEntity.isSpawned = false;
                 lootEntity.isHide = true;
-                Debug.Log("Xp Added");
                 var player = Contexts.sharedInstance.player.baseEntity;
                 player.ReplaceXp(player.xp.value + lootEntity.lootReward.value.xpReward);
             }
