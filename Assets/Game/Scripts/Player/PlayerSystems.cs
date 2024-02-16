@@ -17,8 +17,8 @@ namespace Player
             Add(new PlayerXpSystem(contexts.player));
             
             Add(new PlayerEventSystems(contexts));
-            Add(new PlayerReactiveMovementSystem(contexts.player));
-            Add(new PlayerMovementSystem(contexts));
+            // Add(new PlayerReactiveMovementSystem(contexts.player));
+            // Add(new PlayerMovementSystem(contexts));
 
         }
     }

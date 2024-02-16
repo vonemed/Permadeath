@@ -22,6 +22,7 @@ namespace Game
         
         private GameSystems _gameSystems;
         private PlayerSystems _playerSystems;
+        private PlayerFixedUpdateSystems _playerFixedUpdate;
         private EnemySystems _enemySystems;
         private LootSystems _lootSystems;
         private PoolSystems _poolSystems;
@@ -31,6 +32,7 @@ namespace Game
         {
             _gameSystems = new GameSystems(Contexts.sharedInstance);
             _playerSystems = new PlayerSystems(Contexts.sharedInstance);
+            _playerFixedUpdate = new PlayerFixedUpdateSystems(Contexts.sharedInstance);
             _enemySystems = new EnemySystems(Contexts.sharedInstance);
             _lootSystems = new LootSystems(Contexts.sharedInstance.loot);
             _poolSystems = new PoolSystems(Contexts.sharedInstance);
@@ -68,6 +70,13 @@ namespace Game
             _lootSystems.Cleanup();
             _poolSystems.Cleanup();
             _uiSystems.Cleanup();
+        }
+
+        private void FixedUpdate()
+        {
+            _playerFixedUpdate.Execute();
+            
+            _playerFixedUpdate.Cleanup();
         }
     }
 }
