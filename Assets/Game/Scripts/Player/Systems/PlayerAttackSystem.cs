@@ -49,7 +49,6 @@ namespace Player.Systems
             projectileEntity.ReplaceMoveDirection(new Vector3(newPos.x, 0, newPos.z));
             projectileEntity.ReplaceMovementSpeed(5f);
 
-            Debug.Log("Attack");
             // player.ReplaceAttackRate(player.playerStats.value.attackRate);
             player.ReplacePlayerAttackSpeedCooldown(player.playerStats.value.attackRate);
         }

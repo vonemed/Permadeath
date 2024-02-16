@@ -12,12 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec80644ba1564dd9aedcf08459311a95, type: 3}
   m_Name: EnemyConfig
   m_EditorClassIdentifier: 
-  moveSpeed: 3.5
-  health: 5
-  attackDamage: 1
-  attackRange: 1
-  attackRate: 0.5
   enemyPrefabs:
-  - enemyType: 0
-    enemyPrefab: {fileID: 5450140925651996349, guid: 001c06cf634996048b87acd6580adef0, type: 3}
-    xpReward: 5
+  - enemyPrefab: {fileID: 5450140925651996349, guid: 001c06cf634996048b87acd6580adef0, type: 3}
+    enemyType: 0
+    enemyStats:
+      moveSpeed: 2
+      health: 100
+      attackDamage: 10
+      attackRange: 1
+      attackRate: 1
+      defence: 5
+      dodgeChance: 0
+      critChance: 0
+      xpReward: 5
+  - enemyPrefab: {fileID: 4344337091575883440, guid: 084bf131e8e2e5340a099daa69b5c799, type: 3}
+    enemyType: 1
+    enemyStats:
+      moveSpeed: 2
+      health: 500
+      attackDamage: 150
+      attackRange: 3
+      attackRate: 1
+      defence: 150
+      dodgeChance: 0
+      critChance: 5
+      xpReward: 50

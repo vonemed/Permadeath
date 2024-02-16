@@ -13,13 +13,18 @@ MonoBehaviour:
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
   playerStats:
-    moveSpeed: 20
-    health: 100
-    attackDamage: 5
-    attackRange: 6
-    attackRate: 0.5
+    moveSpeed: 10
+    maxHealth: 100
+    currentHealth: 100
+    attackDamage: 10
+    attackRange: 8
+    attackRate: 0.2
     critChance: 0
+    pureDamageChance: 0
     healthRegen: 0
     dodgeChance: 0
-    defence: 0
+    defence: 10
     pickUpRange: 5
+    projectileAmount: 1
+    abilityCooldown: 15
+    currentEXP: 0

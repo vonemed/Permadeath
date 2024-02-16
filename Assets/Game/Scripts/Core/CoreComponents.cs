@@ -12,6 +12,12 @@ namespace Game
     }
     
     [Player, Enemy, Game]
+    public sealed class RigidbodyComponent : IComponent
+    {
+        public Rigidbody value;
+    }
+    
+    [Player, Enemy, Game]
     public sealed class MovementSpeedComponent : IComponent
     {
         public float value;
@@ -45,17 +51,6 @@ namespace Game
         public uint value;
     }
     
-    #endregion
-
-
-    #region Combat
-    
-    [Player, Enemy, Game, Loot]
-    public sealed class TargetComponent : IComponent
-    {
-        public Transform value;
-    }
-    
     [Player, Enemy, Game]
     public sealed class DamageComponent : IComponent
     {
@@ -73,6 +68,25 @@ namespace Game
     {
         public float value;
     }
+
+    [Player, Enemy]
+    public sealed class DefenceComponent : IComponent
+    {
+        public float value;
+    }
+    
+    #endregion
+
+
+    #region Combat
+    
+    [Player, Enemy, Game, Loot]
+    public sealed class TargetComponent : IComponent
+    {
+        public Transform value;
+    }
+    
+
     
     [Enemy, Player, FlagPrefix("request")]
     public sealed class AttackComponent : IComponent { }

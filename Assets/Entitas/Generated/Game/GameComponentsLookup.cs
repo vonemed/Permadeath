@@ -17,17 +17,18 @@ public static class GameComponentsLookup {
     public const int Pause = 6;
     public const int Play = 7;
     public const int Restart = 8;
-    public const int Show = 9;
-    public const int StateHandler = 10;
-    public const int Target = 11;
-    public const int Transform = 12;
-    public const int GameHideListener = 13;
-    public const int GameShowListener = 14;
-    public const int OffListener = 15;
-    public const int Off = 16;
-    public const int Projectile = 17;
+    public const int Rigidbody = 9;
+    public const int Show = 10;
+    public const int StateHandler = 11;
+    public const int Target = 12;
+    public const int Transform = 13;
+    public const int GameHideListener = 14;
+    public const int GameShowListener = 15;
+    public const int OffListener = 16;
+    public const int Off = 17;
+    public const int Projectile = 18;
 
-    public const int TotalComponents = 18;
+    public const int TotalComponents = 19;
 
     public static readonly string[] componentNames = {
         "CurrentState",
@@ -39,6 +40,7 @@ public static class GameComponentsLookup {
         "Pause",
         "Play",
         "Restart",
+        "Rigidbody",
         "Show",
         "StateHandler",
         "Target",
@@ -60,6 +62,7 @@ public static class GameComponentsLookup {
         typeof(Game.PauseComponent),
         typeof(Game.PlayComponent),
         typeof(Game.RestartComponent),
+        typeof(Game.RigidbodyComponent),
         typeof(Game.ShowComponent),
         typeof(Game.StateHandlerComponent),
         typeof(Game.TargetComponent),

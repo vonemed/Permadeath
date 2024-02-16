@@ -1,4 +1,3 @@
-using ConfigScripts;
 using Entitas;
 using UnityEngine;
 
@@ -16,16 +15,23 @@ namespace Player.Systems
         {
             foreach (var playerEntity in _moves)
             {
-                if (playerEntity.move.newPosition.sqrMagnitude < 0.01)
+                if (playerEntity.move.newPosition.sqrMagnitude == 0)
                     return;
 
-                var scaledMoveSpeed = playerEntity.playerStats.value.moveSpeed * Time.deltaTime;
-                // For simplicity's sake, we just keep movement in a single plane here. Rotate
-                // direction according to world Y rotation of player.
-                var move = new Vector3(playerEntity.move.newPosition.x, playerEntity.move.newPosition.y, playerEntity.move.newPosition.z);
+                // var scaledMoveSpeed = playerEntity.playerStats.value.moveSpeed * Time.deltaTime;
+                // // For simplicity's sake, we just keep movement in a single plane here. Rotate
+                // // direction according to world Y rotation of player.
+                // var move = new Vector3(playerEntity.move.newPosition.x, playerEntity.move.newPosition.y, playerEntity.move.newPosition.z);
+                // var newPos = move * scaledMoveSpeed;
+                
+                // playerEntity.transform.value.GetComponent<Rigidbody>().MovePosition(newPos);
+                // playerEntity.transform.value.Translate(newPos);
+                
+                var move = new Vector3(playerEntity.move.newPosition.x, 0, playerEntity.move.newPosition.z);
+                var scaledMoveSpeed =  playerEntity.playerStats.value.moveSpeed * Time.deltaTime;
                 var newPos = move * scaledMoveSpeed;
                 
-                playerEntity.transform.value.Translate(newPos);
+                playerEntity.rigidbody.value.MovePosition(playerEntity.transform.value.position + newPos);
                 
                 // playerEntity.RemoveMove();
                 // return;

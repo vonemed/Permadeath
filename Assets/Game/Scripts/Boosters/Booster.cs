@@ -19,6 +19,7 @@ namespace Boosters
     {
         public PlayerConfig.PlayerStatType statType;
         public float percentageBuff;
+        public float buffCap;
     }
 
     [Serializable]
@@ -27,6 +28,7 @@ namespace Boosters
         Common,
         Uncommon,
         Rare,
-        Legendary
+        Epic,
+        Ancient
     }
 }

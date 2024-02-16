@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using ConfigScripts;
 using Entitas;
+using UnityEngine;
 
 namespace Enemies
 {
@@ -30,12 +31,14 @@ namespace Enemies
                 
                 var player = Contexts.sharedInstance.player.baseEntity;
                 var currentHealth = (float)player.health.value;
+                var currentDefence = (float)player.defence.value;
                 //If its not time to attack or player is dead, then skip
                 if (enemyEntity.attackRate.value > 0
                     || player.isDeath) continue;
 
-                player.ReplaceHealth( currentHealth - enemyEntity.damage.value);
-                enemyEntity.ReplaceAttackRate(ConfigsManager.Instance.enemyConfig.attackRate);
+                var actualDamage = currentDefence - enemyEntity.damage.value;
+                player.ReplaceHealth( currentHealth - Mathf.Clamp(actualDamage, 0, enemyEntity.damage.value));
+                // enemyEntity.ReplaceAttackRate(ConfigsManager.Instance.enemyConfig.GetEnemyPrefabData);
 
                 if (player.health.value <= 0) player.isDeath = true;
             }

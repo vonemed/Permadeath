@@ -8,30 +8,38 @@ public class PlayerConfig : ScriptableObject
     public class PlayerStats
     {
         public float moveSpeed = 20f;
-        public float health = 100;
+        public float maxHealth = 100;
+        public float currentHealth = 100;
         public float attackDamage = 5;
         public float attackRange = 5f;
         public float attackRate = 1f;
 
-        public uint critChance = 0;
+        public float critChance = 0;
+        public float pureDamageChance = 0;
         public float healthRegen = 0f;
-        public uint dodgeChance = 0;
+        public float dodgeChance = 0;
         public int defence = 0;
         public float pickUpRange = 2f;
+        public int projectileAmount = 1;
+        public float abilityCooldown = 15f;
+        public float currentEXP;
     }
 
     public enum PlayerStatType
     {
         MoveSpeed,
-        Health,
+        MaxHealth,
         AttackDamage,
         AttackRange,
         AttackSpeed,
         CritChance,
+        PureDamageChance,
         HealthRegen,
         DodgeChance,
         Defence,
-        PickupRange
+        PickupRange,
+        ProjectileAmount,
+        AbilityCooldown
     }
 
     [Header("[Stats]")] public PlayerStats playerStats;

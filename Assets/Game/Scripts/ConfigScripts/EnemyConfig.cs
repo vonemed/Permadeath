@@ -8,22 +8,29 @@ namespace ConfigScripts
     [CreateAssetMenu(fileName = "EnemyConfig", menuName = "Configs/EnemyConfig")]
     public class EnemyConfig : ScriptableObject
     {
-        [Header("[Stats]")] 
-        public float moveSpeed;
-        public uint health;
-        public uint attackDamage;
-        public float attackRange;
-        public float attackRate;
-
         [Header("[Prefabs]")] 
         public List<EnemyPrefabData> enemyPrefabs = new List<EnemyPrefabData>();
 
         [Serializable]
         public class EnemyPrefabData
         {
-            public EnemyEnums.EnemyType enemyType;
             public GameObject enemyPrefab;
+            public EnemyEnums.EnemyType enemyType;
+            public EnemyStats enemyStats;
+        }
 
+        [Serializable]
+        public class EnemyStats
+        {
+            public float moveSpeed;
+            public uint health;
+            public uint attackDamage;
+            public float attackRange;
+            public float attackRate;
+            public float defence;
+            public float dodgeChance;
+            public float critChance;
+            
             public int xpReward;
         }
 

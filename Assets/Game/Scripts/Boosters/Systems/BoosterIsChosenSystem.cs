@@ -43,8 +43,13 @@ namespace Boosters.Systems
                     
                     case(PlayerConfig.PlayerStatType.HealthRegen):
                         var currentHealthRegen = player.playerStats.value.healthRegen;
-                        var newHealthRegen  =  (currentHealthRegen / 100) * booster.percentageBuff;;
-                        player.playerStats.value.healthRegen = currentHealthRegen + newHealthRegen;
+                        if (currentHealthRegen == 0) player.playerStats.value.healthRegen = booster.percentageBuff;
+                        else
+                        {
+                            var newHealthRegen  =  (currentHealthRegen / 100) * booster.percentageBuff;;
+                            player.playerStats.value.healthRegen = currentHealthRegen + newHealthRegen;
+                        }
+
                         break;
                     
                     case(PlayerConfig.PlayerStatType.AttackDamage):

@@ -25,8 +25,7 @@ namespace Pools
 
             for (int i = 0; i < spawnAmount; i++)
             {
-                var randPos = new Vector3(transform.position.x + Random.Range(-4f, 4f), transform.position.y, transform.position.z + Random.Range(-4f, 4f));
-                var gmbj = Instantiate(projectilePrefab, randPos, Quaternion.identity,transform);
+                var gmbj = SpawnObject();
                 gmbj.SetActive(false);
                 spawnedObjects.Add(gmbj.GetComponent<Projectile>());
             }
@@ -39,7 +38,15 @@ namespace Pools
                 if (!spawnedObject.gameObject.activeSelf) return spawnedObject;
             }
 
-            return null;
+
+            return SpawnObject().GetComponent<Projectile>();
+        }
+
+        private GameObject SpawnObject()
+        {
+            var randPos = new Vector3(transform.position.x + Random.Range(-4f, 4f), transform.position.y, transform.position.z + Random.Range(-4f, 4f));
+            var gmbj = Instantiate(projectilePrefab, randPos, Quaternion.identity,transform);
+            return gmbj;
         }
     }
 }

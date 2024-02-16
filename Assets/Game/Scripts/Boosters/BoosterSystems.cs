@@ -7,6 +7,7 @@ namespace Boosters
         public BoosterSystems(BoosterContext context)
         {
             Add(new BoosterIsChosenSystem(context));
+            Add(new HealthRegenSystem(context));
         }
     }
 }

@@ -9,7 +9,6 @@ namespace Player
         {
             Add(new PlayerAttackRateSystem());
             
-            Add(new PlayerMovementSystem(contexts));
             
             Add(new PlayerDetectionSystem(contexts));
             Add(new PlayerAttackSystem(contexts.player));
@@ -18,6 +17,9 @@ namespace Player
             Add(new PlayerXpSystem(contexts.player));
             
             Add(new PlayerEventSystems(contexts));
+            Add(new PlayerReactiveMovementSystem(contexts.player));
+            Add(new PlayerMovementSystem(contexts));
+
         }
     }
 }

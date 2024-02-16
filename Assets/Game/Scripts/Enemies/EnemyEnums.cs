@@ -4,7 +4,8 @@ namespace Enemies
     {
         public enum EnemyType
         {
-            Grunt
+            Grunt,
+            Tank
         }
     }
 }

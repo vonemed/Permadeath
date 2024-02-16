@@ -13,6 +13,7 @@ namespace Enemies
 
         private void Awake()
         {
+            var enemyStats = ConfigsManager.Instance.enemyConfig.GetEnemyPrefabData(enemyType).enemyStats;
             linkedEntity = Contexts.sharedInstance.enemy.CreateEntity();
             gameObject.Link(linkedEntity);
 
@@ -21,10 +22,10 @@ namespace Enemies
             linkedEntity.AddNavMeshAgent(GetComponent<NavMeshAgent>());
             linkedEntity.requestPlayerTarget = true;
             
-            linkedEntity.AddHealth(ConfigsManager.Instance.enemyConfig.health);
-            linkedEntity.AddDamage(ConfigsManager.Instance.enemyConfig.attackDamage);
-            linkedEntity.AddAttackRate(ConfigsManager.Instance.enemyConfig.attackRate);
-            linkedEntity.AddXpAward(ConfigsManager.Instance.enemyConfig.GetEnemyPrefabData(enemyType).xpReward);
+            linkedEntity.AddHealth(enemyStats.health);
+            linkedEntity.AddDamage(enemyStats.attackDamage);
+            linkedEntity.AddAttackRate(enemyStats.attackRate);
+            linkedEntity.AddXpAward(enemyStats.xpReward);
         }
     }
 }
