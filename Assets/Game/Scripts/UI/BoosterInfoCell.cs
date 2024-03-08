@@ -1,4 +1,5 @@
 using Boosters;
+using DefaultNamespace;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -13,21 +14,21 @@ namespace UI
         [SerializeField] private TMP_Text boosterDescription;
         [SerializeField] private Image boosterIcon;
 
-        private BoosterStats _boosterStats;
+        private int _boosterHash;
         private Vector3 _defaultScale;
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            Contexts.sharedInstance.booster.CreateEntity().ReplaceBoosterSelected(_boosterStats);
+            Contexts.sharedInstance.booster.CreateEntity().ReplaceBoosterSelected(_boosterHash);
         }
         
-        public void AddBoosterInfo(Booster booster)
+        public void AddBoosterInfo(BoosterScriptable booster)
         {
             boosterName.SetText(booster.name);
             boosterDescription.SetText(booster.description);
             boosterIcon.sprite = booster.icon;
 
-            _boosterStats = booster.boosterStats;
+            _boosterHash = booster.id;
         }
 
         public void OnPointerEnter(PointerEventData eventData)

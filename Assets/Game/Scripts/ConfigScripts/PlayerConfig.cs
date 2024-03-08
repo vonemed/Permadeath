@@ -25,22 +25,7 @@ public class PlayerConfig : ScriptableObject
         public float currentEXP;
     }
 
-    public enum PlayerStatType
-    {
-        MoveSpeed,
-        MaxHealth,
-        AttackDamage,
-        AttackRange,
-        AttackSpeed,
-        CritChance,
-        PureDamageChance,
-        HealthRegen,
-        DodgeChance,
-        Defence,
-        PickupRange,
-        ProjectileAmount,
-        AbilityCooldown
-    }
+
 
     [Header("[Stats]")] public PlayerStats playerStats;
 }

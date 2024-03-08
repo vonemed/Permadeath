@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IAnyPlayerBoosterInventoryListener {
-    void OnAnyPlayerBoosterInventory(PlayerEntity entity, System.Collections.Generic.List<Boosters.Booster> value);
+    void OnAnyPlayerBoosterInventory(PlayerEntity entity, System.Collections.Generic.List<int> value);
 }

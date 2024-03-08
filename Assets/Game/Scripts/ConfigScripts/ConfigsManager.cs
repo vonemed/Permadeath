@@ -1,3 +1,4 @@
+using Boosters;
 using UnityEngine;
 
 namespace ConfigScripts
@@ -8,7 +9,7 @@ namespace ConfigScripts
 
         public PlayerConfig playerConfig;
         public EnemyConfig enemyConfig;
-        public BoosterConfig boosterConfig;
+        public BoosterDatabase boosterDatabase;
         public ParticlesConfig particlesConfig;
 
         private void Awake()

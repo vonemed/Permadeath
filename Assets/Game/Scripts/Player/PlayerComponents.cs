@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Boosters;
+using DefaultNamespace;
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
@@ -33,9 +35,19 @@ namespace Player
         public float value;
     }
 
+    [Serializable]
+    public class BoosterInfo
+    {
+        public BoosterScriptable booster;
+        public uint amount;
+    }
+
     [Player, Event(EventTarget.Any)]
     public sealed class PlayerBoosterInventoryComponent : IComponent
     {
-        public List<Booster> value = new List<Booster>();
+        public List<int> value = new List<int>();
     }
+    
+    [Player]
+    public sealed class PermaDeathComponent : IComponent { }
 }

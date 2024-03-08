@@ -26,14 +26,15 @@ public static class PlayerComponentsLookup {
     public const int Transform = 15;
     public const int Base = 16;
     public const int Move = 17;
-    public const int PlayerAttackSpeedCooldown = 18;
-    public const int PlayerBoosterInventory = 19;
-    public const int PlayerStats = 20;
-    public const int Xp = 21;
-    public const int PlayerAnyHealthListener = 22;
-    public const int PlayerAnyLevelListener = 23;
+    public const int PermaDeath = 18;
+    public const int PlayerAttackSpeedCooldown = 19;
+    public const int PlayerBoosterInventory = 20;
+    public const int PlayerStats = 21;
+    public const int Xp = 22;
+    public const int PlayerAnyHealthListener = 23;
+    public const int PlayerAnyLevelListener = 24;
 
-    public const int TotalComponents = 24;
+    public const int TotalComponents = 25;
 
     public static readonly string[] componentNames = {
         "AnyPlayerBoosterInventoryListener",
@@ -54,6 +55,7 @@ public static class PlayerComponentsLookup {
         "Transform",
         "Base",
         "Move",
+        "PermaDeath",
         "PlayerAttackSpeedCooldown",
         "PlayerBoosterInventory",
         "PlayerStats",
@@ -81,6 +83,7 @@ public static class PlayerComponentsLookup {
         typeof(Game.TransformComponent),
         typeof(Player.BaseComponent),
         typeof(Player.MoveComponent),
+        typeof(Player.PermaDeathComponent),
         typeof(Player.PlayerAttackSpeedCooldownComponent),
         typeof(Player.PlayerBoosterInventoryComponent),
         typeof(Player.PlayerStatsComponent),

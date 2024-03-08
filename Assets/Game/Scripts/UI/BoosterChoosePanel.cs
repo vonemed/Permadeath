@@ -24,20 +24,14 @@ namespace UI
 
         public void OnShow(UIEntity entity)
         {
-            List<Booster> randBoosters = new List<Booster>();
-
-            for (int i = 0; i < 3; i++)
-            {
-                var randBoost = ConfigsManager.Instance.boosterConfig.boosters.Find(x => !randBoosters.Contains(x));
-                randBoosters.Add(randBoost);
-            }
+            var randBoosters = ConfigsManager.Instance.boosterDatabase.GetRandomBoosters(3);
 
             for (int i = 0; i < randBoosters.Count; i++)
             {
                 boosterCells[i].AddBoosterInfo(randBoosters[i]);
             }
             
-            randBoosters.Clear();
+            // randBoosters.Clear();
             gameObject.SetActive(true);
         }
 

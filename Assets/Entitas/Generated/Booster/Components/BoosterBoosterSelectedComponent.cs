@@ -11,17 +11,17 @@ public partial class BoosterEntity {
     public Boosters.BoosterSelectedComponent boosterSelected { get { return (Boosters.BoosterSelectedComponent)GetComponent(BoosterComponentsLookup.BoosterSelected); } }
     public bool hasBoosterSelected { get { return HasComponent(BoosterComponentsLookup.BoosterSelected); } }
 
-    public void AddBoosterSelected(Boosters.BoosterStats newBoosterStats) {
+    public void AddBoosterSelected(int newBoosterHash) {
         var index = BoosterComponentsLookup.BoosterSelected;
         var component = (Boosters.BoosterSelectedComponent)CreateComponent(index, typeof(Boosters.BoosterSelectedComponent));
-        component.boosterStats = newBoosterStats;
+        component.boosterHash = newBoosterHash;
         AddComponent(index, component);
     }
 
-    public void ReplaceBoosterSelected(Boosters.BoosterStats newBoosterStats) {
+    public void ReplaceBoosterSelected(int newBoosterHash) {
         var index = BoosterComponentsLookup.BoosterSelected;
         var component = (Boosters.BoosterSelectedComponent)CreateComponent(index, typeof(Boosters.BoosterSelectedComponent));
-        component.boosterStats = newBoosterStats;
+        component.boosterHash = newBoosterHash;
         ReplaceComponent(index, component);
     }
 

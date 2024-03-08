@@ -13,43 +13,7 @@ MonoBehaviour:
   m_Name: BoosterConfig
   m_EditorClassIdentifier: 
   boosters:
-  - icon: {fileID: 21300000, guid: 4971e2dc27b75e548b0ba2e501e63a11, type: 3}
-    name: Quickened Pulse
-    description: 5% increase attack speed
-    boosterRarity: 1
-    boosterStats:
-      statType: 4
-      percentageBuff: 5
-      buffCap: 30
-  - icon: {fileID: 21300000, guid: 5b54bdb1be4874541bd7c2c63972dfc2, type: 3}
-    name: Warrior's Edge
-    description: '5% damage increase '
-    boosterRarity: 0
-    boosterStats:
-      statType: 2
-      percentageBuff: 5
-      buffCap: 30
-  - icon: {fileID: 21300000, guid: 3fd808bc9447c9d499c40bf3cedec493, type: 3}
-    name: Regenerative Core
-    description: '0.1% hp regen '
-    boosterRarity: 2
-    boosterStats:
-      statType: 7
-      percentageBuff: 2
-      buffCap: 10
-  - icon: {fileID: 21300000, guid: 3fd808bc9447c9d499c40bf3cedec493, type: 3}
-    name: Temporal Compression
-    description: Reduces Active Ability Cooldown by 3%
-    boosterRarity: 0
-    boosterStats:
-      statType: 12
-      percentageBuff: 3
-      buffCap: 20
-  - icon: {fileID: 21300000, guid: 3fd808bc9447c9d499c40bf3cedec493, type: 3}
-    name: Gravitational Pull
-    description: Increases Pick Up Range by 5%
-    boosterRarity: 0
-    boosterStats:
-      statType: 10
-      percentageBuff: 5
-      buffCap: 30
+  - {icon: {fileID: 0}, name: , description: , boosterRarity: 0, values: []
+, cursed: 0, stat: 0}
+  - {icon: {fileID: 0}, name: , description: , boosterRarity: 0, values: []
+, cursed: 0, stat: 0}

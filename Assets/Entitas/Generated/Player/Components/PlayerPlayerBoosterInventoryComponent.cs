@@ -11,14 +11,14 @@ public partial class PlayerEntity {
     public Player.PlayerBoosterInventoryComponent playerBoosterInventory { get { return (Player.PlayerBoosterInventoryComponent)GetComponent(PlayerComponentsLookup.PlayerBoosterInventory); } }
     public bool hasPlayerBoosterInventory { get { return HasComponent(PlayerComponentsLookup.PlayerBoosterInventory); } }
 
-    public void AddPlayerBoosterInventory(System.Collections.Generic.List<Boosters.Booster> newValue) {
+    public void AddPlayerBoosterInventory(System.Collections.Generic.List<int> newValue) {
         var index = PlayerComponentsLookup.PlayerBoosterInventory;
         var component = (Player.PlayerBoosterInventoryComponent)CreateComponent(index, typeof(Player.PlayerBoosterInventoryComponent));
         component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplacePlayerBoosterInventory(System.Collections.Generic.List<Boosters.Booster> newValue) {
+    public void ReplacePlayerBoosterInventory(System.Collections.Generic.List<int> newValue) {
         var index = PlayerComponentsLookup.PlayerBoosterInventory;
         var component = (Player.PlayerBoosterInventoryComponent)CreateComponent(index, typeof(Player.PlayerBoosterInventoryComponent));
         component.value = newValue;

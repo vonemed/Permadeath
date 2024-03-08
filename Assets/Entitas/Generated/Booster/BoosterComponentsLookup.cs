@@ -8,15 +8,30 @@
 //------------------------------------------------------------------------------
 public static class BoosterComponentsLookup {
 
-    public const int BoosterSelected = 0;
+    public const int Booster = 0;
+    public const int BoosterIndex = 1;
+    public const int BoosterSelected = 2;
+    public const int BoosterType = 3;
+    public const int Cursed = 4;
+    public const int CursedListener = 5;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 6;
 
     public static readonly string[] componentNames = {
-        "BoosterSelected"
+        "Booster",
+        "BoosterIndex",
+        "BoosterSelected",
+        "BoosterType",
+        "Cursed",
+        "CursedListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Boosters.BoosterSelectedComponent)
+        typeof(Boosters.BoosterComponent),
+        typeof(Boosters.BoosterIndexComponent),
+        typeof(Boosters.BoosterSelectedComponent),
+        typeof(Boosters.BoosterTypeComponent),
+        typeof(Boosters.CursedComponent),
+        typeof(CursedListenerComponent)
     };
 }

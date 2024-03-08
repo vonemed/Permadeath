@@ -11,9 +11,9 @@ namespace UI
         [SerializeField] private Image icon;
         [SerializeField] private TMP_Text counter;
 
-        public void SetBoosterInfo(Booster booster, int count)
+        public void SetBoosterInfo(Sprite boosterIcon, int count)
         {
-            icon.sprite = booster.icon;
+            icon.sprite = boosterIcon;
             counter.SetText($"x{count.ToString()}");
         }
     }
