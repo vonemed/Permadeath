@@ -15,6 +15,8 @@ namespace Player
 
             Add(new PlayerDeathSystem(contexts.player));
             Add(new PlayerXpSystem(contexts.player));
+
+            Add(new PlayerInventoryUpdateSystem(contexts.player));
             
             Add(new PlayerEventSystems(contexts));
             // Add(new PlayerReactiveMovementSystem(contexts.player));

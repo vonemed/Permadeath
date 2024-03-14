@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Boosters;
 using ConfigScripts;
 using Entitas;
 using Pools;
@@ -44,13 +45,13 @@ namespace Player.Systems
             var newPos = projectileDirection * scaledMoveSpeed;
             projectileEntity.transform.value.position = player.transform.value.position;
             projectileEntity.transform.value.Rotate(projectileDirection * 5f * Time.deltaTime);
-            projectileEntity.ReplaceDamage(player.playerStats.value.attackDamage);
+            projectileEntity.ReplaceDamage(player.playerStats.value.GetStat(BoosterEnums.PlayerStatType.AttackDamage));
             projectileEntity.ReplaceTarget(player.target.value);
             projectileEntity.ReplaceMoveDirection(new Vector3(newPos.x, 0, newPos.z));
             projectileEntity.ReplaceMovementSpeed(5f);
 
             // player.ReplaceAttackRate(player.playerStats.value.attackRate);
-            player.ReplacePlayerAttackSpeedCooldown(player.playerStats.value.attackRate);
+            player.ReplacePlayerAttackSpeedCooldown(player.playerStats.value.GetStat(BoosterEnums.PlayerStatType.AttackSpeed));
         }
     }
 }

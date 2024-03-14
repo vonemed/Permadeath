@@ -1,3 +1,4 @@
+using Boosters;
 using Entitas;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ namespace Player.Systems
         {
             foreach (var playerEntity in _moves)
             {
-                if (playerEntity.move.newPosition.sqrMagnitude == 0)
+                if (playerEntity.move.newPosition.sqrMagnitude == 0 || playerEntity.isPermaDeath)
                     return;
 
                 // var scaledMoveSpeed = playerEntity.playerStats.value.moveSpeed * Time.deltaTime;
@@ -28,7 +29,7 @@ namespace Player.Systems
                 // playerEntity.transform.value.Translate(newPos);
                 
                 var move = new Vector3(playerEntity.move.newPosition.x, 0, playerEntity.move.newPosition.z);
-                var scaledMoveSpeed =  playerEntity.playerStats.value.moveSpeed * Time.deltaTime;
+                var scaledMoveSpeed =  playerEntity.playerStats.value.GetStat(BoosterEnums.PlayerStatType.MoveSpeed) * Time.deltaTime;
                 var newPos = move * scaledMoveSpeed;
                 
                 playerEntity.rigidbody.value.MovePosition(playerEntity.transform.value.position + newPos);

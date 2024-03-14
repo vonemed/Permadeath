@@ -8,6 +8,14 @@ using UnityEngine;
 
 namespace Player
 {
+    [Serializable]
+    public sealed class PlayerBooster
+    {
+        public int level;
+        public bool cursed;
+        public int id;
+    }
+    
     [Player, Unique]
     public sealed class BaseComponent : IComponent { }
     
@@ -45,7 +53,7 @@ namespace Player
     [Player, Event(EventTarget.Any)]
     public sealed class PlayerBoosterInventoryComponent : IComponent
     {
-        public List<int> value = new List<int>();
+        public List<PlayerBooster> value = new List<PlayerBooster>();
     }
     
     [Player]

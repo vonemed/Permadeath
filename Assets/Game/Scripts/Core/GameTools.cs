@@ -1,11 +1,45 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Boosters;
+using ConfigScripts;
 
 namespace GameApp
 {
     public static class GameTools
     {
+        #region ProjectSpecififc
+
+        public static int GetBoosterLevel(int boosterId)
+        {
+            var inventory = Contexts.sharedInstance.player.baseEntity.playerBoosterInventory.value;
+            if (inventory.Count > 0 && inventory.Any(x => x.id == boosterId))
+            {
+                return inventory.Find(x => x.id == boosterId).level;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        // public static float GetPlayerStat(BoosterEnums.PlayerStatType stat)
+        // {
+        //     var player = Contexts.sharedInstance.player.baseEntity;
+        //     switch (stat)
+        //     {
+        //         case(BoosterEnums.PlayerStatType.AttackDamage):
+        //         {
+        //             var playerStat = player.playerStats.value.attackDamage;
+        //             // var boosters = player.playerBoosterInventory.value.FindAll(x => ConfigsManager.Instance.boosterDatabase.GetBoosterById(x.id).)
+        //                 
+        //             break;
+        //         }
+        //     }
+        // }
+
+        #endregion
+        
         #region helpers
 
         public static T[] GetRandomElements<T>(T[] collection, int count)

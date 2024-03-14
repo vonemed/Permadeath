@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Boosters;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerConfig", menuName = "Configs/PlayerConfig")]
@@ -7,25 +9,25 @@ public class PlayerConfig : ScriptableObject
     [Serializable]
     public class PlayerStats
     {
-        public float moveSpeed = 20f;
-        public float maxHealth = 100;
-        public float currentHealth = 100;
-        public float attackDamage = 5;
-        public float attackRange = 5f;
-        public float attackRate = 1f;
+        public List<PlayerStat> playerStats = new List<PlayerStat>();
 
-        public float critChance = 0;
-        public float pureDamageChance = 0;
-        public float healthRegen = 0f;
-        public float dodgeChance = 0;
-        public int defence = 0;
-        public float pickUpRange = 2f;
-        public int projectileAmount = 1;
-        public float abilityCooldown = 15f;
-        public float currentEXP;
+        public float GetStat(BoosterEnums.PlayerStatType statType)
+        {
+            return playerStats.Find(x => x.statType == statType).value;
+        }
+        
+        public void SetStat(BoosterEnums.PlayerStatType statType, float value)
+        {
+            playerStats.Find(x => x.statType == statType).value = value;
+        }
     }
 
-
+    [Serializable]
+    public sealed class PlayerStat
+    {
+        public BoosterEnums.PlayerStatType statType;
+        public float value;
+    }
 
     [Header("[Stats]")] public PlayerStats playerStats;
 }

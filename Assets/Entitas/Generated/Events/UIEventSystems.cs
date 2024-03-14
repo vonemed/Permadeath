@@ -9,6 +9,7 @@
 public sealed class UIEventSystems : Feature {
 
     public UIEventSystems(Contexts contexts) {
+        Add(new CursedPanelBoosterEventSystem(contexts)); // priority: 0
         Add(new UIHideEventSystem(contexts)); // priority: 0
         Add(new UIShowEventSystem(contexts)); // priority: 0
     }

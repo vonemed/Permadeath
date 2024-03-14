@@ -34,9 +34,10 @@ namespace Enemies
                 var currentDefence = (float)player.defence.value;
                 //If its not time to attack or player is dead, then skip
                 if (enemyEntity.attackRate.value > 0
-                    || player.isDeath) continue;
+                    || player.isDeath || player.isPermaDeath 
+                    || enemyEntity.isFreeze) continue;
 
-                var actualDamage = currentDefence - enemyEntity.damage.value;
+                var actualDamage = enemyEntity.damage.value - currentDefence;
                 player.ReplaceHealth( currentHealth - Mathf.Clamp(actualDamage, 0, enemyEntity.damage.value));
                 // enemyEntity.ReplaceAttackRate(ConfigsManager.Instance.enemyConfig.GetEnemyPrefabData);
 

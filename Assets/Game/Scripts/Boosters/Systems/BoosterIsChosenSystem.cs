@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using ConfigScripts;
 using Entitas;
 using Game;
+using Player;
 
 namespace Boosters.Systems
 {
@@ -29,55 +29,25 @@ namespace Boosters.Systems
             foreach (var boosterEntity in entities)
             {
                 var boosterId = boosterEntity.boosterSelected.boosterHash;
-                var booster = ConfigsManager.Instance.boosterDatabase.GetBoosterById(boosterId);
                 var player = Contexts.sharedInstance.player.baseEntity;
-
-                if (booster.boosterType == BoosterEnums.BoosterType.StatBooster)
+                
+                //Adding booster to player inventory
+                if (!player.playerBoosterInventory.value.Exists(x => x.id == boosterId))
                 {
-                    var statBooster = (StatBoosterScriptable)booster;
-                    StatBoosterHandler(statBooster);
+                    //new booster
+                    player.playerBoosterInventory.value.Add(new PlayerBooster()
+                    {
+                        cursed = false,
+                        id = boosterId,
+                        level = 1
+                    });
+                }
+                else
+                {
+                    player.playerBoosterInventory.value.Find(x => x.id == boosterId).level++;
                 }
 
-                player.playerBoosterInventory.value.Add(boosterId);
                 player.ReplacePlayerBoosterInventory(player.playerBoosterInventory.value); //just to trigger listener todo: redo?
-            }
-        }
-
-        private int GetBoosterLevel(int boosterId)
-        {
-            return Contexts.sharedInstance.player.baseEntity.playerBoosterInventory.value.FindAll(x => x == boosterId).Count;
-        }
-        
-        private void StatBoosterHandler(StatBoosterScriptable statBooster)
-        {
-            var player = Contexts.sharedInstance.player.baseEntity;
-            var boosterLevel = GetBoosterLevel(statBooster.id);
-            
-            switch (statBooster.stat)
-            {
-                case(BoosterEnums.PlayerStatType.AttackSpeed):
-                    var currentAttackSpeed = player.playerStats.value.attackRate;
-                    
-                    var newAttackSpeed  =  (currentAttackSpeed / 100) * statBooster.values[boosterLevel];
-                    player.playerStats.value.attackRate = currentAttackSpeed - newAttackSpeed;
-                    break;
-                
-                case(BoosterEnums.PlayerStatType.HealthRegen):
-                    var currentHealthRegen = player.playerStats.value.healthRegen;
-                    if (currentHealthRegen == 0) player.playerStats.value.healthRegen = statBooster.values[boosterLevel];
-                    else
-                    {
-                        var newHealthRegen  =  (currentHealthRegen / 100) * statBooster.values[boosterLevel];
-                        player.playerStats.value.healthRegen = currentHealthRegen + newHealthRegen;
-                    }
-            
-                    break;
-                
-                case(BoosterEnums.PlayerStatType.AttackDamage):
-                    var currentDamage = player.playerStats.value.attackDamage;
-                    var newDamage  =  (currentDamage / 100) * statBooster.values[boosterLevel];
-                    player.playerStats.value.attackDamage = currentDamage + newDamage;
-                    break;
             }
         }
     }

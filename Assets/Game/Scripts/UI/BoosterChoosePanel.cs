@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Boosters;
 using ConfigScripts;
 using Entitas.Unity;
+using GameApp;
 using UnityEngine;
 
 namespace UI
@@ -28,7 +29,7 @@ namespace UI
 
             for (int i = 0; i < randBoosters.Count; i++)
             {
-                boosterCells[i].AddBoosterInfo(randBoosters[i]);
+                boosterCells[i].AddBoosterInfo(randBoosters[i].id);
             }
             
             // randBoosters.Clear();

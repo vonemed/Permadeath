@@ -1,3 +1,4 @@
+using Boosters;
 using ConfigScripts;
 using Entitas;
 using GameApp;
@@ -31,7 +32,7 @@ namespace Player.Systems
                 
                 var target = enemy.transform.value.position;
 
-                if (GameTools.IsInRange(source, target, player.playerStats.value.attackRange))
+                if (GameTools.IsInRange(source, target, player.playerStats.value.GetStat(BoosterEnums.PlayerStatType.AttackRange)))
                 {
                     player.ReplaceTarget(enemy.transform.value);
                     player.requestAttack = true;
@@ -42,7 +43,7 @@ namespace Player.Systems
             {
                 var target = lootEntity.transform.value.position;
 
-                if (GameTools.IsInRange(source, target, player.playerStats.value.pickUpRange))
+                if (GameTools.IsInRange(source, target, player.playerStats.value.GetStat(BoosterEnums.PlayerStatType.PickupRange)))
                 {
                     lootEntity.ReplaceTarget(player.transform.value);
                     lootEntity.isFlyToTarget = true;

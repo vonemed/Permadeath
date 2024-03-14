@@ -9,32 +9,37 @@
 public static class EnemyComponentsLookup {
 
     public const int Enemy = 0;
-    public const int NavMeshAgent = 1;
-    public const int PlayerTarget = 2;
-    public const int XpAward = 3;
-    public const int EnemyAnyHealthListener = 4;
-    public const int EnemyAnyLevelListener = 5;
-    public const int Attack = 6;
-    public const int AttackRange = 7;
-    public const int AttackRate = 8;
-    public const int Damage = 9;
-    public const int Death = 10;
-    public const int Defence = 11;
-    public const int Health = 12;
-    public const int HealthRegen = 13;
-    public const int Level = 14;
-    public const int MovementSpeed = 15;
-    public const int Paused = 16;
-    public const int Rigidbody = 17;
-    public const int Target = 18;
-    public const int Transform = 19;
+    public const int FreezeAllEnemies = 1;
+    public const int NavMeshAgent = 2;
+    public const int PlayerTarget = 3;
+    public const int UnFreezeAllEnemies = 4;
+    public const int XpAward = 5;
+    public const int EnemyAnyHealthListener = 6;
+    public const int EnemyAnyLevelListener = 7;
+    public const int Attack = 8;
+    public const int AttackRange = 9;
+    public const int AttackRate = 10;
+    public const int Damage = 11;
+    public const int Death = 12;
+    public const int Defence = 13;
+    public const int Freeze = 14;
+    public const int Health = 15;
+    public const int HealthRegen = 16;
+    public const int Level = 17;
+    public const int MovementSpeed = 18;
+    public const int Paused = 19;
+    public const int Rigidbody = 20;
+    public const int Target = 21;
+    public const int Transform = 22;
 
-    public const int TotalComponents = 20;
+    public const int TotalComponents = 23;
 
     public static readonly string[] componentNames = {
         "Enemy",
+        "FreezeAllEnemies",
         "NavMeshAgent",
         "PlayerTarget",
+        "UnFreezeAllEnemies",
         "XpAward",
         "EnemyAnyHealthListener",
         "EnemyAnyLevelListener",
@@ -44,6 +49,7 @@ public static class EnemyComponentsLookup {
         "Damage",
         "Death",
         "Defence",
+        "Freeze",
         "Health",
         "HealthRegen",
         "Level",
@@ -56,8 +62,10 @@ public static class EnemyComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(Enemies.EnemyComponent),
+        typeof(Enemies.FreezeAllEnemiesComponent),
         typeof(Enemies.NavMeshAgentComponent),
         typeof(Enemies.PlayerTargetComponent),
+        typeof(Enemies.UnFreezeAllEnemiesComponent),
         typeof(Enemies.XpAwardComponent),
         typeof(EnemyAnyHealthListenerComponent),
         typeof(EnemyAnyLevelListenerComponent),
@@ -67,6 +75,7 @@ public static class EnemyComponentsLookup {
         typeof(Game.DamageComponent),
         typeof(Game.DeathComponent),
         typeof(Game.DefenceComponent),
+        typeof(Game.FreezeComponent),
         typeof(Game.HealthComponent),
         typeof(Game.HealthRegenComponent),
         typeof(Game.LevelComponent),

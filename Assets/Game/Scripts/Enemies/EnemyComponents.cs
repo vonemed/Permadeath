@@ -16,7 +16,16 @@ namespace Enemies
     {
         public NavMeshAgent value;
     }
+
+    [Enemy, Cleanup(CleanupMode.DestroyEntity)]
+    public sealed class FreezeAllEnemiesComponent : IComponent
+    {
+        public float timeToUnfreeze;
+    }
     
+    [Enemy, Cleanup(CleanupMode.DestroyEntity)]
+    public sealed class UnFreezeAllEnemiesComponent : IComponent { }
+
     [Enemy]
     public sealed class XpAwardComponent : IComponent
     {

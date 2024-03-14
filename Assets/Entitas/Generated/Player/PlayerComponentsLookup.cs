@@ -16,25 +16,26 @@ public static class PlayerComponentsLookup {
     public const int Damage = 5;
     public const int Death = 6;
     public const int Defence = 7;
-    public const int Health = 8;
-    public const int HealthRegen = 9;
-    public const int Level = 10;
-    public const int MovementSpeed = 11;
-    public const int Paused = 12;
-    public const int Rigidbody = 13;
-    public const int Target = 14;
-    public const int Transform = 15;
-    public const int Base = 16;
-    public const int Move = 17;
-    public const int PermaDeath = 18;
-    public const int PlayerAttackSpeedCooldown = 19;
-    public const int PlayerBoosterInventory = 20;
-    public const int PlayerStats = 21;
-    public const int Xp = 22;
-    public const int PlayerAnyHealthListener = 23;
-    public const int PlayerAnyLevelListener = 24;
+    public const int Freeze = 8;
+    public const int Health = 9;
+    public const int HealthRegen = 10;
+    public const int Level = 11;
+    public const int MovementSpeed = 12;
+    public const int Paused = 13;
+    public const int Rigidbody = 14;
+    public const int Target = 15;
+    public const int Transform = 16;
+    public const int Base = 17;
+    public const int Move = 18;
+    public const int PermaDeath = 19;
+    public const int PlayerAttackSpeedCooldown = 20;
+    public const int PlayerBoosterInventory = 21;
+    public const int PlayerStats = 22;
+    public const int Xp = 23;
+    public const int PlayerAnyHealthListener = 24;
+    public const int PlayerAnyLevelListener = 25;
 
-    public const int TotalComponents = 25;
+    public const int TotalComponents = 26;
 
     public static readonly string[] componentNames = {
         "AnyPlayerBoosterInventoryListener",
@@ -45,6 +46,7 @@ public static class PlayerComponentsLookup {
         "Damage",
         "Death",
         "Defence",
+        "Freeze",
         "Health",
         "HealthRegen",
         "Level",
@@ -73,6 +75,7 @@ public static class PlayerComponentsLookup {
         typeof(Game.DamageComponent),
         typeof(Game.DeathComponent),
         typeof(Game.DefenceComponent),
+        typeof(Game.FreezeComponent),
         typeof(Game.HealthComponent),
         typeof(Game.HealthRegenComponent),
         typeof(Game.LevelComponent),

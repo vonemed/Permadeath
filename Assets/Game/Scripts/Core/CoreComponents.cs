@@ -95,6 +95,9 @@ namespace Game
     
     [Player, Enemy]
     public sealed class DeathComponent : IComponent { }
+    
+    [Player, Enemy]
+    public sealed class FreezeComponent : IComponent { }
 
     #region State
 
@@ -125,6 +128,7 @@ namespace Game
     
     #endregion
 
+    #region UI
     
     [UI, Game, Loot, Event(EventTarget.Self), Cleanup(CleanupMode.RemoveComponent)]
     public sealed class ShowComponent : IComponent { }
@@ -132,5 +136,6 @@ namespace Game
     [UI, Game, Loot, Event(EventTarget.Self), Cleanup(CleanupMode.RemoveComponent)]
     public sealed class HideComponent : IComponent { }
     
+    #endregion
 
 }
