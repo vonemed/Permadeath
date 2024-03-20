@@ -48,5 +48,11 @@ namespace Pools
             var gmbj = Instantiate(projectilePrefab, randPos, Quaternion.identity,transform);
             return gmbj;
         }
+        
+        private void OnDestroy()
+        {
+            gameObject.Unlink();
+            _linkedEntity.Destroy();
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace UI
     {
         private UIEntity _linkedEntity;
         public BoosterInfoCell booster;
+        private Canvas _canvas;
 
         public ParticleSystem curseParticle;
         public void Ctor()
@@ -21,7 +22,8 @@ namespace UI
             gameObject.Link(_linkedEntity);
 
             _linkedEntity.isCursedPanel = true;
-            
+            _canvas = GetComponent<Canvas>();
+
             _linkedEntity.AddUIShowListener(this);
             _linkedEntity.AddUIHideListener(this);
             _linkedEntity.AddCursedPanelBoosterListener(this);
@@ -29,12 +31,14 @@ namespace UI
         
         public void OnShow(UIEntity entity)
         {
-            gameObject.SetActive(true);
+            _canvas.enabled = true;
+
         }
 
         public void OnHide(UIEntity entity)
         {
-            gameObject.SetActive(false);
+            _canvas.enabled = false;
+
         }
 
         public void OnCursedPanelBooster(UIEntity entity, PlayerBooster value)
@@ -63,6 +67,12 @@ namespace UI
             
             Contexts.sharedInstance.player.baseEntity. //to trigger listener todo: refactor?
                 ReplacePlayerBoosterInventory(Contexts.sharedInstance.player.baseEntity.playerBoosterInventory.value);
+        }
+        
+        private void OnDestroy()
+        {
+            gameObject.Unlink();
+            _linkedEntity.Destroy();
         }
     }
 }

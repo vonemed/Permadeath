@@ -10,7 +10,7 @@ namespace Game
 
         public PlayStateSystem(IContext<GameEntity> context) : base(context)
         {
-            _enemies = Contexts.sharedInstance.enemy.GetGroup(EnemyMatcher.AllOf(EnemyMatcher.Enemy).NoneOf(EnemyMatcher.Death));
+            _enemies = Contexts.sharedInstance.enemy.GetGroup(EnemyMatcher.AllOf(EnemyMatcher.Enemy, EnemyMatcher.Spawned).NoneOf(EnemyMatcher.Death));
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -25,7 +25,6 @@ namespace Game
 
         protected override void Execute(List<GameEntity> entities)
         {
-            Debug.Log("we playin");
             foreach (var enemy in _enemies)
             {
                 enemy.navMeshAgent.value.isStopped = false;

@@ -9,6 +9,7 @@
 public sealed class EnemyCleanupSystems : Feature {
 
     public EnemyCleanupSystems(Contexts contexts) {
+        Add(new RemoveResetEnemySystem(contexts));
         Add(new DestroyFreezeAllEnemiesEnemySystem(contexts));
         Add(new DestroyUnFreezeAllEnemiesEnemySystem(contexts));
     }

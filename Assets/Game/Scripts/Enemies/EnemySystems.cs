@@ -14,6 +14,9 @@ namespace Enemies
             Add(new EnemyDeathSystem(contexts.enemy));
             
             Add(new EnemyFreezeSystem(contexts.enemy));
+            
+            Add(new EnemyEventSystems(contexts));
+
         }
     }
 }

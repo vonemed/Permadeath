@@ -1,7 +1,7 @@
 
 namespace Projectiles
 {
-    public class ProjectileSystems : Feature
+    public sealed class ProjectileSystems : Feature
     {
         public ProjectileSystems(Contexts contexts)
         {

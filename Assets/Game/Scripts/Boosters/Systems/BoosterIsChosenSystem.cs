@@ -23,7 +23,7 @@ namespace Boosters.Systems
 
         protected override void Execute(List<BoosterEntity> entities)
         {
-            Contexts.sharedInstance.uI.boosterChoosePanelEntity.isHide = true;
+            Contexts.sharedInstance.gameUI.boosterChoosePanelEntity.isHide = true;
             Contexts.sharedInstance.game.stateHandlerEntity.ReplaceCurrentState(GameCore.GameState.Play);
 
             foreach (var boosterEntity in entities)

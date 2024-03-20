@@ -1,17 +1,17 @@
-using System;
+using UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public MainMenuPanel mainMenuPanel;
+
+    private void Awake()
+    {
+        mainMenuPanel.Ctor();
+    }
+
     public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("Quitting Game..");
-    }
-
-    public void StartGame()
-    {
-        SceneManager.LoadScene("Assets/Game/Scenes/Game");
     }
 }

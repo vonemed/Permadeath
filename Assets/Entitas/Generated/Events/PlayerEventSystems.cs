@@ -12,6 +12,7 @@ public sealed class PlayerEventSystems : Feature {
         Add(new PlayerAnyHealthEventSystem(contexts)); // priority: 0
         Add(new PlayerAnyLevelEventSystem(contexts)); // priority: 0
         Add(new AnyPlayerBoosterInventoryEventSystem(contexts)); // priority: 0
+        Add(new PlayerResetEventSystem(contexts)); // priority: 0
         Add(new AnyXpEventSystem(contexts)); // priority: 0
     }
 }

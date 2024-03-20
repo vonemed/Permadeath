@@ -23,5 +23,11 @@ namespace Loot
         {
             public int xpReward;
         }
+
+        private void OnDestroy()
+        {
+            gameObject.Unlink();
+            linkedEntity.Destroy();
+        }
     }
 }

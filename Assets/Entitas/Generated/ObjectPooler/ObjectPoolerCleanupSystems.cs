@@ -10,5 +10,6 @@ public sealed class ObjectPoolerCleanupSystems : Feature {
 
     public ObjectPoolerCleanupSystems(Contexts contexts) {
         Add(new RemoveSpawnObjectsObjectPoolerSystem(contexts));
+        Add(new RemoveResetObjectPoolerSystem(contexts));
     }
 }

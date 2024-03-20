@@ -5,18 +5,19 @@ using UnityEngine;
 namespace Game
 {
     #region Movement
+
     [Player, Game, Enemy, ObjectPooler, Loot]
     public sealed class TransformComponent : IComponent
     {
         public Transform value;
     }
-    
+
     [Player, Enemy, Game]
     public sealed class RigidbodyComponent : IComponent
     {
         public Rigidbody value;
     }
-    
+
     [Player, Enemy, Game]
     public sealed class MovementSpeedComponent : IComponent
     {
@@ -28,7 +29,7 @@ namespace Game
     {
         public Vector3 value;
     }
-    
+
     #endregion
 
     #region Stats
@@ -38,7 +39,7 @@ namespace Game
     {
         public float value;
     }
-    
+
     [Player, Enemy]
     public sealed class HealthRegenComponent : IComponent
     {
@@ -50,19 +51,19 @@ namespace Game
     {
         public uint value;
     }
-    
+
     [Player, Enemy, Game]
     public sealed class DamageComponent : IComponent
     {
         public float value;
     }
-    
+
     [Player, Enemy]
     public sealed class AttackRateComponent : IComponent
     {
         public float value;
     }
-    
+
     [Player, Enemy]
     public sealed class AttackRangeComponent : IComponent
     {
@@ -74,68 +75,99 @@ namespace Game
     {
         public float value;
     }
-    
+
     #endregion
 
 
     #region Combat
-    
+
     [Player, Enemy, Game, Loot]
     public sealed class TargetComponent : IComponent
     {
         public Transform value;
     }
-    
 
-    
+
     [Enemy, Player, FlagPrefix("request")]
-    public sealed class AttackComponent : IComponent { }
-    
+    public sealed class AttackComponent : IComponent
+    {
+    }
+
     #endregion
-    
+
+    #region StatusEffects
+
     [Player, Enemy]
-    public sealed class DeathComponent : IComponent { }
-    
+    public sealed class DeathComponent : IComponent
+    {
+    }
+
     [Player, Enemy]
-    public sealed class FreezeComponent : IComponent { }
+    public sealed class FreezeComponent : IComponent
+    {
+    }
+    
+    [Player, Enemy, Game, ObjectPooler, Event(EventTarget.Self), Cleanup(CleanupMode.RemoveComponent)]
+    public sealed class ResetComponent : IComponent { }
+    
+    [Enemy, Event(EventTarget.Self)]
+    public sealed class SpawnedComponent : IComponent { }
+
+    #endregion
+
 
     #region State
 
     //Core
     [Game, Unique]
-    public sealed class StateHandlerComponent : IComponent {}
+    public sealed class StateHandlerComponent : IComponent
+    {
+    }
 
     [Game, Unique]
     public sealed class CurrentStateComponent : IComponent
     {
         public GameCore.GameState value;
     }
-    
+
     [Player, Enemy]
-    public sealed class PausedComponent : IComponent { }
+    public sealed class PausedComponent : IComponent
+    {
+    }
 
     [Game, FlagPrefix("request"), Cleanup(CleanupMode.DestroyEntity)]
-    public sealed class DefeatComponent : IComponent { }
-    
+    public sealed class DefeatComponent : IComponent
+    {
+    }
+
     [Game, FlagPrefix("request"), Cleanup(CleanupMode.DestroyEntity)]
-    public sealed class RestartComponent : IComponent { }
-    
+    public sealed class RestartComponent : IComponent
+    {
+    }
+
     [Game, FlagPrefix("request"), Cleanup(CleanupMode.DestroyEntity)]
-    public sealed class PauseComponent : IComponent { }
-    
+    public sealed class PauseComponent : IComponent
+    {
+    }
+
     [Game, FlagPrefix("request"), Cleanup(CleanupMode.DestroyEntity)]
-    public sealed class PlayComponent : IComponent { }
-    
+    public sealed class PlayComponent : IComponent
+    {
+    }
+
     #endregion
 
     #region UI
-    
-    [UI, Game, Loot, Event(EventTarget.Self), Cleanup(CleanupMode.RemoveComponent)]
-    public sealed class ShowComponent : IComponent { }
-    
-    [UI, Game, Loot, Event(EventTarget.Self), Cleanup(CleanupMode.RemoveComponent)]
-    public sealed class HideComponent : IComponent { }
-    
-    #endregion
 
+    [UI, GameUI, Game, Loot, Event(EventTarget.Self), Cleanup(CleanupMode.RemoveComponent)]
+    public sealed class ShowComponent : IComponent
+    {
+    }
+
+    [UI,GameUI, Game, Loot, Event(EventTarget.Self), Cleanup(CleanupMode.RemoveComponent)]
+    public sealed class HideComponent : IComponent
+    {
+    }
+
+    #endregion
 }

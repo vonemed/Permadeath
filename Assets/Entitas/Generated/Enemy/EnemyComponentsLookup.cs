@@ -16,23 +16,27 @@ public static class EnemyComponentsLookup {
     public const int XpAward = 5;
     public const int EnemyAnyHealthListener = 6;
     public const int EnemyAnyLevelListener = 7;
-    public const int Attack = 8;
-    public const int AttackRange = 9;
-    public const int AttackRate = 10;
-    public const int Damage = 11;
-    public const int Death = 12;
-    public const int Defence = 13;
-    public const int Freeze = 14;
-    public const int Health = 15;
-    public const int HealthRegen = 16;
-    public const int Level = 17;
-    public const int MovementSpeed = 18;
-    public const int Paused = 19;
-    public const int Rigidbody = 20;
-    public const int Target = 21;
-    public const int Transform = 22;
+    public const int EnemyResetListener = 8;
+    public const int Attack = 9;
+    public const int AttackRange = 10;
+    public const int AttackRate = 11;
+    public const int Damage = 12;
+    public const int Death = 13;
+    public const int Defence = 14;
+    public const int Freeze = 15;
+    public const int Health = 16;
+    public const int HealthRegen = 17;
+    public const int Level = 18;
+    public const int MovementSpeed = 19;
+    public const int Paused = 20;
+    public const int Reset = 21;
+    public const int Rigidbody = 22;
+    public const int Spawned = 23;
+    public const int Target = 24;
+    public const int Transform = 25;
+    public const int SpawnedListener = 26;
 
-    public const int TotalComponents = 23;
+    public const int TotalComponents = 27;
 
     public static readonly string[] componentNames = {
         "Enemy",
@@ -43,6 +47,7 @@ public static class EnemyComponentsLookup {
         "XpAward",
         "EnemyAnyHealthListener",
         "EnemyAnyLevelListener",
+        "EnemyResetListener",
         "Attack",
         "AttackRange",
         "AttackRate",
@@ -55,9 +60,12 @@ public static class EnemyComponentsLookup {
         "Level",
         "MovementSpeed",
         "Paused",
+        "Reset",
         "Rigidbody",
+        "Spawned",
         "Target",
-        "Transform"
+        "Transform",
+        "SpawnedListener"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -69,6 +77,7 @@ public static class EnemyComponentsLookup {
         typeof(Enemies.XpAwardComponent),
         typeof(EnemyAnyHealthListenerComponent),
         typeof(EnemyAnyLevelListenerComponent),
+        typeof(EnemyResetListenerComponent),
         typeof(Game.AttackComponent),
         typeof(Game.AttackRangeComponent),
         typeof(Game.AttackRateComponent),
@@ -81,8 +90,11 @@ public static class EnemyComponentsLookup {
         typeof(Game.LevelComponent),
         typeof(Game.MovementSpeedComponent),
         typeof(Game.PausedComponent),
+        typeof(Game.ResetComponent),
         typeof(Game.RigidbodyComponent),
+        typeof(Game.SpawnedComponent),
         typeof(Game.TargetComponent),
-        typeof(Game.TransformComponent)
+        typeof(Game.TransformComponent),
+        typeof(SpawnedListenerComponent)
     };
 }

@@ -9,6 +9,7 @@
 public sealed class ObjectPoolerEventSystems : Feature {
 
     public ObjectPoolerEventSystems(Contexts contexts) {
+        Add(new ObjectPoolerResetEventSystem(contexts)); // priority: 0
         Add(new SpawnObjectsEventSystem(contexts)); // priority: 0
     }
 }

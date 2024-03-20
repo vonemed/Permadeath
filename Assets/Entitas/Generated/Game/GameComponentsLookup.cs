@@ -16,19 +16,21 @@ public static class GameComponentsLookup {
     public const int MovementSpeed = 5;
     public const int Pause = 6;
     public const int Play = 7;
-    public const int Restart = 8;
-    public const int Rigidbody = 9;
-    public const int Show = 10;
-    public const int StateHandler = 11;
-    public const int Target = 12;
-    public const int Transform = 13;
-    public const int GameHideListener = 14;
-    public const int GameShowListener = 15;
-    public const int OffListener = 16;
-    public const int Off = 17;
-    public const int Projectile = 18;
+    public const int Reset = 8;
+    public const int Restart = 9;
+    public const int Rigidbody = 10;
+    public const int Show = 11;
+    public const int StateHandler = 12;
+    public const int Target = 13;
+    public const int Transform = 14;
+    public const int GameHideListener = 15;
+    public const int GameResetListener = 16;
+    public const int GameShowListener = 17;
+    public const int OffListener = 18;
+    public const int Off = 19;
+    public const int Projectile = 20;
 
-    public const int TotalComponents = 19;
+    public const int TotalComponents = 21;
 
     public static readonly string[] componentNames = {
         "CurrentState",
@@ -39,6 +41,7 @@ public static class GameComponentsLookup {
         "MovementSpeed",
         "Pause",
         "Play",
+        "Reset",
         "Restart",
         "Rigidbody",
         "Show",
@@ -46,6 +49,7 @@ public static class GameComponentsLookup {
         "Target",
         "Transform",
         "GameHideListener",
+        "GameResetListener",
         "GameShowListener",
         "OffListener",
         "Off",
@@ -61,6 +65,7 @@ public static class GameComponentsLookup {
         typeof(Game.MovementSpeedComponent),
         typeof(Game.PauseComponent),
         typeof(Game.PlayComponent),
+        typeof(Game.ResetComponent),
         typeof(Game.RestartComponent),
         typeof(Game.RigidbodyComponent),
         typeof(Game.ShowComponent),
@@ -68,6 +73,7 @@ public static class GameComponentsLookup {
         typeof(Game.TargetComponent),
         typeof(Game.TransformComponent),
         typeof(GameHideListenerComponent),
+        typeof(GameResetListenerComponent),
         typeof(GameShowListenerComponent),
         typeof(OffListenerComponent),
         typeof(Projectiles.OffComponent),

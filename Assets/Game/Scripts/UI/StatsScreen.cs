@@ -1,3 +1,4 @@
+using Entitas.Unity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,5 +33,11 @@ public class StatsScreen : MonoBehaviour, IPlayerAnyHealthListener, IAnyXpListen
     public void OnAnyLevel(PlayerEntity entity, uint value)
     {
         _levelText.SetText($"Level: {value}");
+    }
+    
+    private void OnDestroy()
+    {
+        // gameObject.Unlink();
+        _linkedEntity.Destroy();
     }
 }

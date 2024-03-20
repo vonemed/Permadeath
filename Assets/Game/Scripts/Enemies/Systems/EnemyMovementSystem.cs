@@ -11,7 +11,7 @@ namespace Enemies
 
         public EnemyMovementSystem(EnemyContext context)
         {
-            _enemies = context.GetGroup(EnemyMatcher.AllOf(EnemyMatcher.Enemy, EnemyMatcher.Target, EnemyMatcher.Transform).NoneOf(EnemyMatcher.Death));
+            _enemies = context.GetGroup(EnemyMatcher.AllOf(EnemyMatcher.Enemy, EnemyMatcher.Target, EnemyMatcher.Transform, EnemyMatcher.Spawned).NoneOf(EnemyMatcher.Death));
         }
 
         public void Execute()

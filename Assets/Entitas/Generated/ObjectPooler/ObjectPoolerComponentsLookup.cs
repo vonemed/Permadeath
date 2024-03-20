@@ -8,35 +8,44 @@
 //------------------------------------------------------------------------------
 public static class ObjectPoolerComponentsLookup {
 
-    public const int Transform = 0;
-    public const int CurrentWave = 1;
-    public const int EnemyPool = 2;
-    public const int EnemyWaves = 3;
-    public const int NextWaveTimer = 4;
-    public const int ObjectPool = 5;
-    public const int SpawnObjects = 6;
-    public const int SpawnObjectsListener = 7;
+    public const int Reset = 0;
+    public const int Transform = 1;
+    public const int ObjectPoolerResetListener = 2;
+    public const int CurrentWave = 3;
+    public const int EnemyPool = 4;
+    public const int EnemyWaves = 5;
+    public const int NextWaveTimer = 6;
+    public const int ObjectPool = 7;
+    public const int SpawnedObjects = 8;
+    public const int SpawnObjects = 9;
+    public const int SpawnObjectsListener = 10;
 
-    public const int TotalComponents = 8;
+    public const int TotalComponents = 11;
 
     public static readonly string[] componentNames = {
+        "Reset",
         "Transform",
+        "ObjectPoolerResetListener",
         "CurrentWave",
         "EnemyPool",
         "EnemyWaves",
         "NextWaveTimer",
         "ObjectPool",
+        "SpawnedObjects",
         "SpawnObjects",
         "SpawnObjectsListener"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Game.ResetComponent),
         typeof(Game.TransformComponent),
+        typeof(ObjectPoolerResetListenerComponent),
         typeof(Pools.CurrentWaveComponent),
         typeof(Pools.EnemyPoolComponent),
         typeof(Pools.EnemyWavesComponent),
         typeof(Pools.NextWaveTimerComponent),
         typeof(Pools.ObjectPoolComponent),
+        typeof(Pools.SpawnedObjectsComponent),
         typeof(Pools.SpawnObjectsComponent),
         typeof(SpawnObjectsListenerComponent)
     };

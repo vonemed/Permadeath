@@ -9,6 +9,7 @@
 public sealed class GameCleanupSystems : Feature {
 
     public GameCleanupSystems(Contexts contexts) {
+        Add(new RemoveResetGameSystem(contexts));
         Add(new DestroyDefeatGameSystem(contexts));
         Add(new DestroyRestartGameSystem(contexts));
         Add(new DestroyPauseGameSystem(contexts));

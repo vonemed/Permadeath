@@ -22,20 +22,22 @@ public static class PlayerComponentsLookup {
     public const int Level = 11;
     public const int MovementSpeed = 12;
     public const int Paused = 13;
-    public const int Rigidbody = 14;
-    public const int Target = 15;
-    public const int Transform = 16;
-    public const int Base = 17;
-    public const int Move = 18;
-    public const int PermaDeath = 19;
-    public const int PlayerAttackSpeedCooldown = 20;
-    public const int PlayerBoosterInventory = 21;
-    public const int PlayerStats = 22;
-    public const int Xp = 23;
-    public const int PlayerAnyHealthListener = 24;
-    public const int PlayerAnyLevelListener = 25;
+    public const int Reset = 14;
+    public const int Rigidbody = 15;
+    public const int Target = 16;
+    public const int Transform = 17;
+    public const int Base = 18;
+    public const int Move = 19;
+    public const int PermaDeath = 20;
+    public const int PlayerAttackSpeedCooldown = 21;
+    public const int PlayerBoosterInventory = 22;
+    public const int PlayerStats = 23;
+    public const int Xp = 24;
+    public const int PlayerAnyHealthListener = 25;
+    public const int PlayerAnyLevelListener = 26;
+    public const int PlayerResetListener = 27;
 
-    public const int TotalComponents = 26;
+    public const int TotalComponents = 28;
 
     public static readonly string[] componentNames = {
         "AnyPlayerBoosterInventoryListener",
@@ -52,6 +54,7 @@ public static class PlayerComponentsLookup {
         "Level",
         "MovementSpeed",
         "Paused",
+        "Reset",
         "Rigidbody",
         "Target",
         "Transform",
@@ -63,7 +66,8 @@ public static class PlayerComponentsLookup {
         "PlayerStats",
         "Xp",
         "PlayerAnyHealthListener",
-        "PlayerAnyLevelListener"
+        "PlayerAnyLevelListener",
+        "PlayerResetListener"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -81,6 +85,7 @@ public static class PlayerComponentsLookup {
         typeof(Game.LevelComponent),
         typeof(Game.MovementSpeedComponent),
         typeof(Game.PausedComponent),
+        typeof(Game.ResetComponent),
         typeof(Game.RigidbodyComponent),
         typeof(Game.TargetComponent),
         typeof(Game.TransformComponent),
@@ -92,6 +97,7 @@ public static class PlayerComponentsLookup {
         typeof(Player.PlayerStatsComponent),
         typeof(Player.XpComponent),
         typeof(PlayerAnyHealthListenerComponent),
-        typeof(PlayerAnyLevelListenerComponent)
+        typeof(PlayerAnyLevelListenerComponent),
+        typeof(PlayerResetListenerComponent)
     };
 }

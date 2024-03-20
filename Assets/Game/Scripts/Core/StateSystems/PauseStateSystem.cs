@@ -8,7 +8,7 @@ namespace Game
         private IGroup<EnemyEntity> _enemies;
         public PauseStateSystem(IContext<GameEntity> context) : base(context)
         {
-            _enemies = Contexts.sharedInstance.enemy.GetGroup(EnemyMatcher.AllOf(EnemyMatcher.Enemy).NoneOf(EnemyMatcher.Death));
+            _enemies = Contexts.sharedInstance.enemy.GetGroup(EnemyMatcher.AllOf(EnemyMatcher.Enemy, EnemyMatcher.Spawned).NoneOf(EnemyMatcher.Death));
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)

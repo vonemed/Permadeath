@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace UI
@@ -8,6 +9,7 @@ namespace UI
         public CursedPanel cursedPanel;
         public BoosterChoosePanel boosterPanel;
         public StatsScreen statsScreen;
+        public PausePanel pausePanel;
         public PlayerBoosterInventory boosterInventory;
 
         private void Awake()
@@ -17,6 +19,12 @@ namespace UI
             boosterPanel.Ctor();
             boosterInventory.Ctor();
             cursedPanel.Ctor();
+            pausePanel.Ctor();
+        }
+
+        private void OnDestroy()
+        {
+            Debug.Log("ui core destroyed");
         }
     }
 }

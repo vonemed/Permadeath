@@ -7,16 +7,12 @@ using UnityEngine.InputSystem;
 
 namespace Player
 {
-    public class PlayerView : MonoBehaviour
+    public class PlayerView : MonoBehaviour, IPlayerResetListener
     {
         public PlayerEntity linkedEntity;
 
         private PlayerConfig _playerConfig;
         private PlayerConfig.PlayerStats _playerStats;
-
-        private Dictionary<BoosterEnums.PlayerStatType, float> statsHolder;
-
-        public float GetStatByEnum(BoosterEnums.PlayerStatType stat) => statsHolder[stat];
         
         private void Start()
         {
@@ -29,26 +25,40 @@ namespace Player
             linkedEntity.AddTransform(transform);
             linkedEntity.AddRigidbody(GetComponent<Rigidbody>());
             
-            // linkedEntity.AddDamage(_playerConfig.playerStats.attackDamage);
-            // linkedEntity.AddAttackRange(_playerConfig.playerStats.attackRange);
-            // linkedEntity.AddAttackRate(_playerConfig.playerStats.attackRate);
+            linkedEntity.AddPlayerResetListener(this);
             
-            linkedEntity.AddPlayerBoosterInventory(new List<PlayerBooster>());
-
-            var smth = Instantiate(_playerConfig);
-            _playerStats = smth.playerStats;
-            linkedEntity.AddPlayerStats(_playerStats);
-            linkedEntity.AddHealth(_playerStats.GetStat(BoosterEnums.PlayerStatType.MaxHealth));
-            linkedEntity.AddDefence(_playerStats.GetStat(BoosterEnums.PlayerStatType.Defence));
-            linkedEntity.ReplacePlayerAttackSpeedCooldown(_playerStats.GetStat(BoosterEnums.PlayerStatType.AttackSpeed));
-            
-            linkedEntity.AddXp(0);
-            linkedEntity.AddLevel(1);
+            InitialSetup();
         }
         
         public void OnMove(InputAction.CallbackContext context)
         {
             linkedEntity.ReplaceMove(context.ReadValue<Vector3>());
+        }
+
+        private void OnDestroy()
+        {
+            gameObject.Unlink();
+            linkedEntity.Destroy();
+        }
+
+        private void InitialSetup()
+        {
+            var smth = Instantiate(_playerConfig);
+            _playerStats = smth.playerStats;
+            
+            linkedEntity.ReplacePlayerStats(_playerStats);
+            linkedEntity.ReplaceHealth(_playerStats.GetStat(BoosterEnums.PlayerStatType.MaxHealth));
+            linkedEntity.ReplaceDefence(_playerStats.GetStat(BoosterEnums.PlayerStatType.Defence));
+            linkedEntity.ReplacePlayerAttackSpeedCooldown(_playerStats.GetStat(BoosterEnums.PlayerStatType.AttackSpeed));
+            linkedEntity.ReplacePlayerBoosterInventory(new List<PlayerBooster>());
+            
+            linkedEntity.ReplaceXp(0);
+            linkedEntity.ReplaceLevel(1);
+        }
+
+        public void OnReset(PlayerEntity entity)
+        {
+            InitialSetup();
         }
     }
 }

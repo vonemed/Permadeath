@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 namespace Enemies
 {
-    public class EnemyView : MonoBehaviour
+    public class EnemyView : MonoBehaviour, IEnemyResetListener
     {
         public EnemyEnums.EnemyType enemyType;
         
@@ -26,6 +26,24 @@ namespace Enemies
             linkedEntity.AddDamage(enemyStats.attackDamage);
             linkedEntity.AddAttackRate(enemyStats.attackRate);
             linkedEntity.AddXpAward(enemyStats.xpReward);
+            
+            linkedEntity.AddEnemyResetListener(this);
+        }
+
+        private void OnDestroy()
+        {
+            gameObject.Unlink();
+            linkedEntity.Destroy();
+        }
+
+        public void OnReset(EnemyEntity entity)
+        {
+            var enemyStats = ConfigsManager.Instance.enemyConfig.GetEnemyPrefabData(enemyType).enemyStats;
+            
+            // linkedEntity.ReplaceNavMeshAgent(GetComponent<NavMeshAgent>());
+            linkedEntity.ReplaceHealth(enemyStats.health);
+            linkedEntity.isSpawned = false;
+            gameObject.SetActive(false);
         }
     }
 }

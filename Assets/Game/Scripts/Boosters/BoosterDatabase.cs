@@ -38,7 +38,20 @@ namespace Boosters
                 return null;
             }
 
-            return boosters.GetRandomSubset(amount);
+            var boostersActual = new List<BoosterScriptable>();
+            boostersActual.AddRange(boosters);
+            var player = Contexts.sharedInstance.player.baseEntity;
+            var maxedOutBoosters = player.playerBoosterInventory.value.FindAll(x => x.level == GetBoosterById(x.id).values.Count);
+
+            foreach (var maxedOutBooster in maxedOutBoosters)
+            {
+                var boostActual = GetBoosterById(maxedOutBooster.id);
+                Debug.Log($"Removing booster {boostActual.name}");
+                boostersActual.Remove(boostActual);
+                amount--;
+            }
+
+            return boostersActual.GetRandomSubset(amount);
         }
 
         public Color GetRarityColor(BoosterEnums.BoosterRarity rarity)

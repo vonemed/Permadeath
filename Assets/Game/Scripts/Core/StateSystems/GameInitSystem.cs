@@ -9,7 +9,7 @@ namespace Game
             var stateEntity = Contexts.sharedInstance.game.CreateEntity();
 
             stateEntity.isStateHandler = true;
-            stateEntity.ReplaceCurrentState(GameCore.GameState.Play);
+            stateEntity.ReplaceCurrentState(GameCore.GameState.MainMenu);
         }
     }
 }

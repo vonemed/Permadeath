@@ -24,17 +24,19 @@ public partial class Contexts : Entitas.IContexts {
     public BoosterContext booster { get; set; }
     public EnemyContext enemy { get; set; }
     public GameContext game { get; set; }
+    public GameUIContext gameUI { get; set; }
     public LootContext loot { get; set; }
     public ObjectPoolerContext objectPooler { get; set; }
     public PlayerContext player { get; set; }
     public UIContext uI { get; set; }
 
-    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { booster, enemy, game, loot, objectPooler, player, uI }; } }
+    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { booster, enemy, game, gameUI, loot, objectPooler, player, uI }; } }
 
     public Contexts() {
         booster = new BoosterContext();
         enemy = new EnemyContext();
         game = new GameContext();
+        gameUI = new GameUIContext();
         loot = new LootContext();
         objectPooler = new ObjectPoolerContext();
         player = new PlayerContext();
@@ -103,6 +105,7 @@ public partial class Contexts {
             CreateContextObserver(booster);
             CreateContextObserver(enemy);
             CreateContextObserver(game);
+            CreateContextObserver(gameUI);
             CreateContextObserver(loot);
             CreateContextObserver(objectPooler);
             CreateContextObserver(player);

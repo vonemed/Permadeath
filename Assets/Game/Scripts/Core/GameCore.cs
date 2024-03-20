@@ -1,9 +1,11 @@
+
 using System;
 using Enemies;
 using Loot;
 using Player;
 using Pools;
 using UI;
+using UI.GameUI;
 using UnityEngine;
 
 namespace Game
@@ -12,6 +14,7 @@ namespace Game
     {
         public enum GameState
         {
+            MainMenu,
             Play,
             Defeat,
             Victory,
@@ -26,7 +29,8 @@ namespace Game
         private EnemySystems _enemySystems;
         private LootSystems _lootSystems;
         private PoolSystems _poolSystems;
-        private UISystems _uiSystems;
+
+        public GameUISystems _gameUISystems;
 
         private void Awake()
         {
@@ -36,7 +40,8 @@ namespace Game
             _enemySystems = new EnemySystems(Contexts.sharedInstance);
             _lootSystems = new LootSystems(Contexts.sharedInstance.loot);
             _poolSystems = new PoolSystems(Contexts.sharedInstance);
-            _uiSystems = new UISystems(Contexts.sharedInstance);
+
+            _gameUISystems = new GameUISystems(Contexts.sharedInstance);
         }
 
         private void Start()
@@ -46,7 +51,8 @@ namespace Game
             _enemySystems.Initialize();
             _lootSystems.Initialize();
             _poolSystems.Initialize();
-            _uiSystems.Initialize();
+            
+            _gameUISystems.Initialize();
         }
 
         private void Update()
@@ -54,14 +60,14 @@ namespace Game
             _gameSystems.Execute();
 
             if (Contexts.sharedInstance.game.stateHandlerEntity.hasCurrentState 
-                && Contexts.sharedInstance.game.stateHandlerEntity.currentState.value != GameState.Pause)
+                && Contexts.sharedInstance.game.stateHandlerEntity.currentState.value == GameState.Play)
             {
                 _playerSystems.Execute();
                 _enemySystems.Execute();
                 _poolSystems.Execute();
             }
             
-            _uiSystems.Execute();
+            _gameUISystems.Execute();
             _lootSystems.Execute();
 
             _gameSystems.Cleanup();
@@ -69,18 +75,29 @@ namespace Game
             _enemySystems.Cleanup();
             _lootSystems.Cleanup();
             _poolSystems.Cleanup();
-            _uiSystems.Cleanup();
+            
+            _gameUISystems.Cleanup();
         }
 
         private void FixedUpdate()
         {
             if (Contexts.sharedInstance.game.stateHandlerEntity.hasCurrentState
-                && Contexts.sharedInstance.game.stateHandlerEntity.currentState.value != GameState.Pause)
+                && Contexts.sharedInstance.game.stateHandlerEntity.currentState.value == GameState.Play)
             {
                 _playerFixedUpdate.Execute();
-
                 _playerFixedUpdate.Cleanup();
             }
+        }
+
+        private void OnDestroy() //clear all systems
+        {
+            _playerSystems.DeactivateReactiveSystems();
+            _playerFixedUpdate.DeactivateReactiveSystems();
+            _enemySystems.DeactivateReactiveSystems();
+            _poolSystems.DeactivateReactiveSystems();
+            _lootSystems.DeactivateReactiveSystems();
+            
+            _gameUISystems.DeactivateReactiveSystems();
         }
     }
 }

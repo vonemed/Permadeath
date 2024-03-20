@@ -1,16 +1,15 @@
 using Entitas.Unity;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UI
 {
     public class DefeatPanel : MonoBehaviour, IUIShowListener, IUIHideListener
     {
         private UIEntity _linkedEntity;
+        private Canvas _canvas;
 
-        [SerializeField] private Button restartButton;
-        [SerializeField] private Button exitButton;
+        
         [SerializeField] private TMP_Text title;
         public void Ctor()
         {
@@ -18,34 +17,27 @@ namespace UI
             gameObject.Link(_linkedEntity);
 
             _linkedEntity.isDefeatPanel = true;
-            
+            _canvas = GetComponent<Canvas>();
+
             _linkedEntity.AddUIShowListener(this);
             _linkedEntity.AddUIHideListener(this);
         }
 
         public void OnShow(UIEntity entity)
         {
-            gameObject.SetActive(true);
-            var player = Contexts.sharedInstance.player.baseEntity;
+            _canvas.enabled = true;
 
-            if (player.isPermaDeath)
-            {
-                title.SetText($"Permadeath");
-                restartButton.gameObject.SetActive(true);
-                exitButton.gameObject.SetActive(true);
-            }
-            else
-            {
-                restartButton.gameObject.SetActive(false);
-                exitButton.gameObject.SetActive(false);
-                
-                title.SetText($"Death");
-            }
         }
 
         public void OnHide(UIEntity entity)
         {
-            gameObject.SetActive(false);
+            _canvas.enabled = false;
+        }
+        
+        private void OnDestroy()
+        {
+            gameObject.Unlink();
+            _linkedEntity.Destroy();
         }
     }
 }

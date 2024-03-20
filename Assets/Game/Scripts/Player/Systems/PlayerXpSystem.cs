@@ -35,7 +35,7 @@ namespace Player.Systems
                     playerEntity.ReplaceLevel(++currentLevel);
                     playerEntity.ReplaceXp(newXp);
 
-                    Contexts.sharedInstance.uI.boosterChoosePanelEntity.isShow = true;
+                    Contexts.sharedInstance.gameUI.boosterChoosePanelEntity.isShow = true;
                     Contexts.sharedInstance.game.stateHandlerEntity.ReplaceCurrentState(GameCore.GameState.Pause);
                     return;
                 }

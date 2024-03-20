@@ -8,6 +8,12 @@ namespace UI
     public sealed class DefeatPanelComponent : IComponent { }
     
     [UI, Unique]
+    public sealed class PausePanelComponent : IComponent { }
+    
+    [UI, Unique]
+    public sealed class MainMenuPanelComponent : IComponent { }
+    
+    [UI, Unique]
     public sealed class CursedPanelComponent : IComponent { }
 
     [UI, Event(EventTarget.Self)]
@@ -15,10 +21,7 @@ namespace UI
     {
         public PlayerBooster value;
     }
-    
-    [UI, Unique]
-    public sealed class BoosterChoosePanelComponent : IComponent { }
-    
+
     [UI, Unique]
     public sealed class StatsScreenComponent : IComponent { }
 }

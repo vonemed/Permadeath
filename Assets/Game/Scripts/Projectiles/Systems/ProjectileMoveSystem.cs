@@ -1,6 +1,7 @@
 using System.Linq;
 using ConfigScripts;
 using Entitas;
+using Game;
 using GameApp;
 using UnityEngine;
 
@@ -22,7 +23,9 @@ namespace Projectiles
         
         public void Execute()
         {
-            foreach (var projectile in _projectiles)
+            if (Contexts.sharedInstance.game.stateHandlerEntity.currentState.value != GameCore.GameState.Play) return;
+            
+                foreach (var projectile in _projectiles)
             {
                 Debug.DrawRay(Contexts.sharedInstance.player.baseEntity.transform.value.position, 
                     projectile.moveDirection.value * 15f);

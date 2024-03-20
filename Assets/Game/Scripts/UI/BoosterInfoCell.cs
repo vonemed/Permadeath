@@ -34,9 +34,10 @@ namespace UI
         
         public void AddBoosterInfo(int boosterId)
         {
+            gameObject.SetActive(true);
             //clear tweens
             twn.Kill();
-            transform.localScale = _defaultScale;
+            if(_defaultScale != Vector3.zero) transform.localScale = _defaultScale;
             
             _booster = ConfigsManager.Instance.boosterDatabase.GetBoosterById(boosterId);
             
@@ -68,6 +69,8 @@ namespace UI
 
         public void AddCursedBoosterInfo(int boosterId, bool cursed)
         {
+            gameObject.SetActive(true);
+
             _cursed = cursed;
             _booster = ConfigsManager.Instance.boosterDatabase.GetBoosterById(boosterId);
             var boosterLevel = GameTools.GetBoosterLevel(boosterId);
@@ -80,7 +83,7 @@ namespace UI
                 
                 if (_booster.cursedVariant.boosterType == BoosterEnums.BoosterType.StatBooster)
                 {
-                    cursedBoosterValues.SetText(CursedStatBoosterStringBuilder((StatBoosterScriptable)_booster, boosterLevel));
+                    cursedBoosterValues.SetText(CursedStatBoosterStringBuilder((StatBoosterScriptable)_booster.cursedVariant, boosterLevel));
                 }
                 else
                 {
@@ -130,5 +133,6 @@ namespace UI
         {
             return "";
         }
+        
     }
 }

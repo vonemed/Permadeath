@@ -12,10 +12,9 @@ namespace Projectiles
         {
             linkedEntity = Contexts.sharedInstance.game.CreateEntity();
             gameObject.Link(linkedEntity);
-
+            
             linkedEntity.isProjectile = true;
             linkedEntity.AddTransform(transform);
-            
             linkedEntity.AddOffListener(this);
         }
 
@@ -23,6 +22,12 @@ namespace Projectiles
         {
             trail.Clear();
             gameObject.SetActive(false);
+        }
+
+        private void OnDestroy()
+        {
+            gameObject.Unlink();
+            linkedEntity.Destroy();
         }
     }
 }

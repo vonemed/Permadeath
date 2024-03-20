@@ -1,4 +1,5 @@
 using Boosters;
+using CoreSystems;
 using Entitas;
 using Projectiles;
 
@@ -8,15 +9,7 @@ namespace Game
     {
         public GameSystems(Contexts contexts)
         {
-            //Init
-            Add(new GameInitSystem());
-            
-            //States //todo: group them into a feature
-            Add(new StateHandlerSystem(contexts.game));
-            Add(new DefeatStateSystem(contexts.game));
-            Add(new RestartStateSystem(contexts.game));
-            Add(new PauseStateSystem(contexts.game));
-            Add(new PlayStateSystem(contexts.game));
+            Add(new KeyboardSystem(contexts));
 
             Add(new ProjectileSystems(contexts));
             Add(new BoosterSystems(contexts.booster));

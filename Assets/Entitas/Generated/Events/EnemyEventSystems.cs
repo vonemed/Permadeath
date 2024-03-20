@@ -11,5 +11,7 @@ public sealed class EnemyEventSystems : Feature {
     public EnemyEventSystems(Contexts contexts) {
         Add(new EnemyAnyHealthEventSystem(contexts)); // priority: 0
         Add(new EnemyAnyLevelEventSystem(contexts)); // priority: 0
+        Add(new EnemyResetEventSystem(contexts)); // priority: 0
+        Add(new SpawnedEventSystem(contexts)); // priority: 0
     }
 }

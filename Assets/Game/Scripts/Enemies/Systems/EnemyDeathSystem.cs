@@ -33,8 +33,7 @@ namespace Enemies
                 lootAward.linkedEntity.isPickedUp = false;
                 lootAward.linkedEntity.isSpawned = true;
                 
-                enemyEntity.RemoveNavMeshAgent();
-                enemyEntity.transform.value.gameObject.SetActive(false); //todo: redo
+                enemyEntity.isReset = true;
             }
         }
     }

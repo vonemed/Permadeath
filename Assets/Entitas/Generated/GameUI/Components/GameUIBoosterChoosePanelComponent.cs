@@ -6,9 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class UIContext {
+public partial class GameUIContext {
 
-    public UIEntity boosterChoosePanelEntity { get { return GetGroup(UIMatcher.BoosterChoosePanel).GetSingleEntity(); } }
+    public GameUIEntity boosterChoosePanelEntity { get { return GetGroup(GameUIMatcher.BoosterChoosePanel).GetSingleEntity(); } }
 
     public bool isBoosterChoosePanel {
         get { return boosterChoosePanelEntity != null; }
@@ -33,15 +33,15 @@ public partial class UIContext {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class UIEntity {
+public partial class GameUIEntity {
 
-    static readonly UI.BoosterChoosePanelComponent boosterChoosePanelComponent = new UI.BoosterChoosePanelComponent();
+    static readonly UI.GameUI.BoosterChoosePanelComponent boosterChoosePanelComponent = new UI.GameUI.BoosterChoosePanelComponent();
 
     public bool isBoosterChoosePanel {
-        get { return HasComponent(UIComponentsLookup.BoosterChoosePanel); }
+        get { return HasComponent(GameUIComponentsLookup.BoosterChoosePanel); }
         set {
             if (value != isBoosterChoosePanel) {
-                var index = UIComponentsLookup.BoosterChoosePanel;
+                var index = GameUIComponentsLookup.BoosterChoosePanel;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
@@ -65,15 +65,15 @@ public partial class UIEntity {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class UIMatcher {
+public sealed partial class GameUIMatcher {
 
-    static Entitas.IMatcher<UIEntity> _matcherBoosterChoosePanel;
+    static Entitas.IMatcher<GameUIEntity> _matcherBoosterChoosePanel;
 
-    public static Entitas.IMatcher<UIEntity> BoosterChoosePanel {
+    public static Entitas.IMatcher<GameUIEntity> BoosterChoosePanel {
         get {
             if (_matcherBoosterChoosePanel == null) {
-                var matcher = (Entitas.Matcher<UIEntity>)Entitas.Matcher<UIEntity>.AllOf(UIComponentsLookup.BoosterChoosePanel);
-                matcher.componentNames = UIComponentsLookup.componentNames;
+                var matcher = (Entitas.Matcher<GameUIEntity>)Entitas.Matcher<GameUIEntity>.AllOf(GameUIComponentsLookup.BoosterChoosePanel);
+                matcher.componentNames = GameUIComponentsLookup.componentNames;
                 _matcherBoosterChoosePanel = matcher;
             }
 

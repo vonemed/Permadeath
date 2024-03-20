@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
+using UnityEngine;
 
 namespace Pools
 {
@@ -26,6 +27,12 @@ namespace Pools
     public sealed class EnemyWavesComponent : IComponent
     {
         public List<EnemyPooler.EnemyData> value = new List<EnemyPooler.EnemyData>();
+    }
+    
+    [ObjectPooler]
+    public sealed class SpawnedObjectsComponent : IComponent
+    {
+        public List<EnemyPooler.SpawnedObject> value = new List<EnemyPooler.SpawnedObject>();
     }
     
     [ObjectPooler, Event(EventTarget.Self), Cleanup(CleanupMode.RemoveComponent)]
